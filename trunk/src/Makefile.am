@@ -13,6 +13,8 @@ ibus_engine_libthai_SOURCES = \
 	engine.h \
 	engine.c \
 	main.c \
+	thaikb.h \
+	thaikb.c \
 	utils.h \
 	utils.c \
 	$(NULL)
@@ -20,6 +22,7 @@ ibus_engine_libthai_SOURCES = \
 noinst_HEADERS = \
 	intl.h \
 	engine.h \
+	thaikb.h \
 	utils.h \
 	$(NULL)
 

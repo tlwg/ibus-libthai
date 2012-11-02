@@ -22,6 +22,7 @@
 #endif
 
 #include "engine.h"
+#include "thaikb.h"
 #include <thai/thcell.h>
 #include <thai/thinp.h>
 #include <glib.h>
@@ -234,6 +235,9 @@ keyval_to_tis (guint keyval)
 
   if (0x01000e01 <= keyval && keyval <= 0x01000e5f)
     return (tischar_t)(keyval - 0x01000e01) + 0xa1;
+
+  if (IBUS_space <= keyval && keyval <= IBUS_asciitilde)
+    return thai_map_qwerty (keyval);
 
   return 0;
 /*
