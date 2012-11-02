@@ -1,5 +1,15 @@
 2012-11-02  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Add internal QWERTY-to-TH keyboard mapping.
+
+	* src/Makefile.am, +src/thaikb.h, +src/thaikb.c:
+	  - Add internal QWERTY-to-TH keyboard mapping.
+
+	* src/engine.c (keyval_to_tis):
+	  - If keyval is in English range, map it to Thai TIS-620 char.
+
+2012-11-02  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	* First working version.
 
 2011-12-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
