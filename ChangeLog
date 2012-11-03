@@ -1,3 +1,10 @@
+2012-11-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Do the most likely case first for key mapping.
+
+	* src/engine.c (keyval_to_tis):
+	  - Check & convert English keysyms first.
+
 2012-11-02  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Add internal QWERTY-to-TH keyboard mapping.
