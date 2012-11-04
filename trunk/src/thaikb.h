@@ -25,6 +25,7 @@ typedef enum _ThaiKBMode ThaiKBMode;
 enum _ThaiKBMode
 {
   THAI_KB_KETMANEE,
+  THAI_KB_PATTACHOTE,
   THAI_KB_TIS820_2538
 };
 
