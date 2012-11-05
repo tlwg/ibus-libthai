@@ -44,6 +44,8 @@
 
 GType   ibus_libthai_engine_get_type ();
 
+void ibus_libthai_init (IBusBus *bus);
+
 #endif /* __ENGINE_H__ */
 
 /*

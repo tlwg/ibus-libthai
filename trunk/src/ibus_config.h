@@ -17,22 +17,29 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef __THAIKB_H__
-#define __THAIKB_H__
+#ifndef __IBUS_CONFIG_H__
+#define __IBUS_CONFIG_H__
 
-typedef enum _ThaiKBMode ThaiKBMode;
+#include <thai/thinp.h>
+#include "thaikb.h"
+#include <ibus.h>
 
-enum _ThaiKBMode
+typedef struct _IBusLibThaiSetupOptions IBusLibThaiSetupOptions;
+
+struct _IBusLibThaiSetupOptions
 {
-  THAI_KB_KETMANEE,
-  THAI_KB_PATTACHOTE,
-  THAI_KB_TIS820_2538
+  ThaiKBMode thai_kb_mode;
+  thstrict_t isc_mode;
 };
 
-unsigned char thai_map_qwerty (ThaiKBMode layout, unsigned char c);
+void ibus_libthai_read_config (IBusConfig *config,
+                               IBusLibThaiSetupOptions *opt);
+void ibus_libthai_write_config (IBusConfig *config,
+                                const IBusLibThaiSetupOptions *opt);
+gboolean force_engine_to_reload_config ();
 
-#endif /* __THAIKB_H__ */
- 
+#endif /* __IBUS_CONFIG_H__ */
+
 /*
 vi:ts=2:nowrap:ai:expandtab
 */

@@ -56,6 +56,8 @@ init (void)
   g_signal_connect (bus, "disconnected", G_CALLBACK (ibus_disconnected_cb),
                     NULL);
 	
+  ibus_libthai_init (bus);
+
   factory = ibus_factory_new (ibus_bus_get_connection (bus));
   g_object_ref_sink (factory);
   ibus_factory_add_engine (factory, "libthai", IBUS_TYPE_LIBTHAI_ENGINE);

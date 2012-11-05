@@ -1,3 +1,36 @@
+2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add setup UI (WIP).
+
+	Known problem: ibus config fails (with DBus errors) to read/write
+	with ibus 1.4.1-8 on Debian.
+
+	* configure.ac, src/Makefile.am, +src/engine_const.h,
+	  +src/ibus_config.h, +src/ibus_config.c:
+	  - Add common code as static lib for reading/writing configurations.
+	  - This also requires AC_PROG_RANLIB in configure.
+
+	* configure.ac, Makefile.am, +setup/Makefile.am, +setup/setup.c,
+	  +setup/dlg_setup.h, +setup/dlg_setup.c:
+	  - Add GUI for preferences setup.
+	  - This also requires gtk+-3.0 in configure.
+
+	* src/engine.c, src/engine.h, src/main.c:
+	  - Add kb_layout member to IBusLibThaiEngine.
+	  - Read config for keyboard layout and ISC mode.
+
+	* src/engine.c (keyval_to_tis, ibus_libthai_engine_process_key_event),
+	  src/thaikb.h, src/thaikb.c (thai_map_qwerty, -thai_set_keyboard):
+	  - (keyval_to_tis) takes keyboard layout as argument.
+	  - (ibus_libthai_engine_process_key_event) calls keyval_to_tis with
+	    engine's keyboard layout config.
+	  - (thai_map_qwerty) takes keyboard layout as argument and look up
+	    keys with two-dimensional array.
+	  - (thai_set_keyboard) is now obsolete.
+
+	* src/libthai.xml.in.in:
+	  - Add 'setup' element.
+
 2012-11-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Reformat hex numbers in key map.

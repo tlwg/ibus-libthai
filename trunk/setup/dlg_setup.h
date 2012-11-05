@@ -17,22 +17,21 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef __THAIKB_H__
-#define __THAIKB_H__
+#ifndef __DLG_SETUP_H__
+#define __DLG_SETUP_H__
 
-typedef enum _ThaiKBMode ThaiKBMode;
+#include "ibus_config.h"
+#include <gtk/gtk.h>
 
-enum _ThaiKBMode
-{
-  THAI_KB_KETMANEE,
-  THAI_KB_PATTACHOTE,
-  THAI_KB_TIS820_2538
-};
+GtkWidget *ibus_libthai_setup_dialog_new ();
 
-unsigned char thai_map_qwerty (ThaiKBMode layout, unsigned char c);
+void ibus_libthai_setup_set_values (const GtkDialog *dlg,
+                                    const IBusLibThaiSetupOptions *opt);
+void ibus_libthai_setup_get_values (const GtkDialog *dlg,
+                                    IBusLibThaiSetupOptions *opt);
 
-#endif /* __THAIKB_H__ */
- 
+#endif /* __DLG_SETUP_H__ */
+
 /*
 vi:ts=2:nowrap:ai:expandtab
 */

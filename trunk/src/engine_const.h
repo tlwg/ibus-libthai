@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
- *  Copyright (C) 2012 Theppitak Karoonboonyanan <thep@linux.thai.net>
+ *  Copyright (C) 2011 Theppitak Karoonboonyanan <thep@linux.thai.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,22 +17,17 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef __THAIKB_H__
-#define __THAIKB_H__
+#ifndef __ENGINE_CONST_H__
+#define __ENGINE_CONST_H__
 
-typedef enum _ThaiKBMode ThaiKBMode;
+#define CONFIG_SECTION    "engine/LibThai"
 
-enum _ThaiKBMode
-{
-  THAI_KB_KETMANEE,
-  THAI_KB_PATTACHOTE,
-  THAI_KB_TIS820_2538
-};
+#define CONFIG_KB_LAYOUT  "kb_layout"
+#define CONFIG_ISC_MODE   "isc_mode"
 
-unsigned char thai_map_qwerty (ThaiKBMode layout, unsigned char c);
 
-#endif /* __THAIKB_H__ */
- 
+#endif /* __ENGINE_CONST_H__ */
+
 /*
 vi:ts=2:nowrap:ai:expandtab
 */

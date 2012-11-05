@@ -11,6 +11,7 @@ AC_CONFIG_MACRO_DIR([m4])
 # Checks for programs.
 AC_PROG_CC
 AM_PROG_CC_C_O
+AC_PROG_RANLIB
 
 GETTEXT_PACKAGE="$PACKAGE_NAME"
 AC_SUBST(GETTEXT_PACKAGE)
@@ -32,11 +33,13 @@ AC_CHECK_FUNCS([memmove memset setlocale])
 
 PKG_CHECK_MODULES(IBUS, [ibus-1.0 >= 1.2.99])
 PKG_CHECK_MODULES(GLIB, [glib-2.0])
+PKG_CHECK_MODULES(GTK, [gtk+-3.0])
 PKG_CHECK_MODULES(LIBTHAI, [libthai >= 0.1.2])
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/libthai.xml.in
+                 setup/Makefile
                  icons/Makefile
                  po/Makefile.in])
 AC_OUTPUT

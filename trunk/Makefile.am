@@ -1,1 +1,1 @@
-SUBDIRS = src icons po
+SUBDIRS = src setup icons po
