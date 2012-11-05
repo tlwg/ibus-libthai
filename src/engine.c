@@ -22,6 +22,7 @@
 #endif
 
 #include "engine.h"
+#include "ibus_config.h"
 #include "thaikb.h"
 #include <thai/thcell.h>
 #include <thai/thinp.h>
@@ -42,6 +43,7 @@ struct _IBusLibThaiEngine
   /* members */
   tischar_t  char_buff[FALLBACK_BUFF_SIZE];
   short      buff_tail;
+  ThaiKBMode kb_layout;
   thstrict_t isc_mode;
 };
 
@@ -72,6 +74,16 @@ ibus_libthai_engine_get_prev_cell (IBusLibThaiEngine *libthai_engine,
 /* Utility functions */
 static gboolean
 is_client_support_surrounding (IBusEngine *engine);
+
+/* Global variables */
+static IBusConfig *ibus_config = NULL;
+
+void
+ibus_libthai_init (IBusBus *bus)
+{
+  ibus_config = ibus_bus_get_config (bus);
+}
+
 
 GType
 ibus_libthai_engine_get_type ()
@@ -113,8 +125,14 @@ ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass)
 static void
 ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
 {
+  IBusLibThaiSetupOptions opt;
+
   ibus_libthai_engine_forget_prev_chars (libthai_engine);
-  libthai_engine->isc_mode = ISC_BASICCHECK;
+
+  /* Read config */
+  ibus_libthai_read_config (ibus_config, &opt);
+  libthai_engine->kb_layout = opt.thai_kb_mode;
+  libthai_engine->isc_mode = opt.isc_mode;
 }
 
 static gboolean
@@ -228,10 +246,10 @@ is_context_intact_key (guint keyval)
 }
 
 static tischar_t
-keyval_to_tis (guint keyval)
+keyval_to_tis (ThaiKBMode thai_int_layout, guint keyval)
 {
   if (IBUS_space <= keyval && keyval <= IBUS_asciitilde)
-    return thai_map_qwerty (keyval);
+    return thai_map_qwerty (thai_int_layout, keyval);
 
   if (IBUS_Thai_kokai <= keyval && keyval <= IBUS_Thai_lekkao)
     return (tischar_t)(keyval - IBUS_Thai_kokai) + 0xa1;
@@ -310,7 +328,7 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
     }
 
   ibus_libthai_engine_get_prev_cell (libthai_engine, &context_cell);
-  new_char = keyval_to_tis (keyval);
+  new_char = keyval_to_tis (libthai_engine->kb_layout, keyval);
   if (!th_validate (context_cell, new_char, &conv))
     goto reject_char;
 

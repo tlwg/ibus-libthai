@@ -82,26 +82,21 @@ static const char ketmanee_qwerty_map[] =
   0xbb, 0xd1, 0xbc, 0xb0, 0xa5, 0x2c, 0x25, 0x7f
 };
 
-static const char *thai_qwerty_map = ketmanee_qwerty_map;
-
-void
-thai_set_keyboard (ThaiKBMode thai_kbmode)
+static const char *thai_qwerty_map[] =
 {
-  switch (thai_kbmode)
-    {
-      case THAI_KB_TIS820_2538:
-        thai_qwerty_map = tis_qwerty_map;  break;
-      case THAI_KB_PATTACHOTE:
-        thai_qwerty_map = pattachote_qwerty_map;  break;
-      case THAI_KB_KETMANEE:
-      default:
-        thai_qwerty_map = ketmanee_qwerty_map;  break;
-    }
-}
+  ketmanee_qwerty_map,
+  pattachote_qwerty_map,
+  tis_qwerty_map
+};
 
 unsigned char
-thai_map_qwerty (unsigned char c)
+thai_map_qwerty (ThaiKBMode layout, unsigned char c)
 {
-  return thai_qwerty_map[c];
+  if (layout > THAI_KB_TIS820_2538)
+    {
+      layout = THAI_KB_TIS820_2538;
+    }
+
+  return thai_qwerty_map[layout][c];
 }
 

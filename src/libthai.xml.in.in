@@ -19,6 +19,7 @@
       <layout>th</layout>
       <longname>LibThai</longname>
       <description>LibThai-based input method</description>
+      <setup>${libexecdir}/ibus-setup-libthai</setup>
       <rank>0</rank>
     </engine>
   </engines>

@@ -23,6 +23,8 @@ noinst_HEADERS = \
 	intl.h \
 	engine.h \
 	thaikb.h \
+	ibus_config.h \
+	engine_const.h \
 	utils.h \
 	$(NULL)
 
@@ -36,6 +38,19 @@ ibus_engine_libthai_LDADD = \
 	$(IBUS_LIBS) \
 	$(GLIB_LIBS) \
 	$(LIBTHAI_LIBS) \
+	libibus-libthai-config.a \
+	$(NULL)
+
+noinst_LIBRARIES = libibus-libthai-config.a
+
+libibus_libthai_config_a_SOURCES = \
+	ibus_config.c
+	$(NULL)
+
+libibus_libthai_config_a_CFLAGS = \
+	$(IBUS_CFLAGS)  \
+	$(GLIB_CFLAGS) \
+	$(LIBTHAI_CFLAGS) \
 	$(NULL)
 
 component_DATA = libthai.xml
