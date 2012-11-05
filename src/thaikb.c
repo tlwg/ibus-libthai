@@ -90,13 +90,13 @@ static const char *thai_qwerty_map[] =
 };
 
 unsigned char
-thai_map_qwerty (ThaiKBMode layout, unsigned char c)
+thai_map_qwerty (ThaiKBMap map, unsigned char c)
 {
-  if (layout > THAI_KB_TIS820_2538)
+  if (map > THAI_KB_TIS820_2538)
     {
-      layout = THAI_KB_TIS820_2538;
+      map = THAI_KB_TIS820_2538;
     }
 
-  return thai_qwerty_map[layout][c];
+  return thai_qwerty_map[map][c];
 }
 

@@ -28,7 +28,7 @@ typedef struct _IBusLibThaiSetupOptions IBusLibThaiSetupOptions;
 
 struct _IBusLibThaiSetupOptions
 {
-  ThaiKBMode thai_kb_mode;
+  ThaiKBMap  thai_kb_map;
   thstrict_t isc_mode;
 };
 

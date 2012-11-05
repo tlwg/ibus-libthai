@@ -23,7 +23,7 @@
 static void
 set_default_config (IBusLibThaiSetupOptions *opt)
 {
-  opt->thai_kb_mode = THAI_KB_KETMANEE;
+  opt->thai_kb_map = THAI_KB_KETMANEE;
   opt->isc_mode = ISC_BASICCHECK;
 }
 
@@ -39,7 +39,7 @@ ibus_libthai_read_config (IBusConfig *config,
   val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT);
   if (val && g_variant_is_of_type (val, G_VARIANT_TYPE_BYTE))
     {
-      opt->thai_kb_mode = g_variant_get_byte (val);
+      opt->thai_kb_map = g_variant_get_byte (val);
       g_variant_unref (val);
     }
 
@@ -59,7 +59,7 @@ ibus_libthai_write_config (IBusConfig *config,
   GVariant *val;
 
   /* Set keyboard layout */
-  val = g_variant_new_byte (opt->thai_kb_mode);
+  val = g_variant_new_byte (opt->thai_kb_map);
   ibus_config_set_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT, val);
 
   /* Set input sequence check mode */
