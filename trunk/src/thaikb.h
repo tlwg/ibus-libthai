@@ -20,16 +20,16 @@
 #ifndef __THAIKB_H__
 #define __THAIKB_H__
 
-typedef enum _ThaiKBMode ThaiKBMode;
+typedef enum _ThaiKBMap ThaiKBMap;
 
-enum _ThaiKBMode
+enum _ThaiKBMap
 {
   THAI_KB_KETMANEE,
   THAI_KB_PATTACHOTE,
   THAI_KB_TIS820_2538
 };
 
-unsigned char thai_map_qwerty (ThaiKBMode layout, unsigned char c);
+unsigned char thai_map_qwerty (ThaiKBMap map, unsigned char c);
 
 #endif /* __THAIKB_H__ */
  

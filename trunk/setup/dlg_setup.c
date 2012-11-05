@@ -168,7 +168,7 @@ ibus_libthai_setup_set_values (const GtkDialog *dlg,
   GtkWidget *widget;
 
   /* Set current keyboard layout value */
-  switch (opt->thai_kb_mode)
+  switch (opt->thai_kb_map)
     {
       case THAI_KB_PATTACHOTE:
         widget = g_object_get_data (G_OBJECT (dlg), "pattachote_radio");
@@ -210,18 +210,18 @@ ibus_libthai_setup_get_values (const GtkDialog *dlg,
   widget = g_object_get_data (G_OBJECT (dlg), "pattachote_radio");
   if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     {
-      opt->thai_kb_mode = THAI_KB_PATTACHOTE;
-      goto kb_mode_done;
+      opt->thai_kb_map = THAI_KB_PATTACHOTE;
+      goto kb_map_done;
     }
   widget = g_object_get_data (G_OBJECT (dlg), "tis_radio");
   if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     {
-      opt->thai_kb_mode = THAI_KB_TIS820_2538;
-      goto kb_mode_done;
+      opt->thai_kb_map = THAI_KB_TIS820_2538;
+      goto kb_map_done;
     }
-  opt->thai_kb_mode = THAI_KB_KETMANEE;
+  opt->thai_kb_map = THAI_KB_KETMANEE;
 
-kb_mode_done:
+kb_map_done:
   /* Check for input sequence check value */
   widget = g_object_get_data (G_OBJECT (dlg), "no_check_radio");
   if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))

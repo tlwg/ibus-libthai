@@ -1,5 +1,21 @@
 2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Make Thai KB map types & vars consistent.
+
+	* src/thaikb.h, src/thaikb.c (ThaiKBMap, thai_map_qwerty):
+	  - ThaiKBMode -> ThaiKBMap type.
+	  - (thai_map_qwerty): layout -> map arg.
+
+	* src/ibus_config.h, src/ibus_config.c, setup/dlg_setup.c
+	  (IBusLibThaiSetupOptions):
+	  - thai_kb_mode -> thai_kb_map member.
+
+	* src/engine.c (IBusLibThaiEngine, keyval_to_tis):
+	  - kb_layout -> kb_map member.
+	  - thai_int_layout -> thai_kb_map arg.
+
+2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add setup UI (WIP).
 
 	Known problem: ibus config fails (with DBus errors) to read/write
