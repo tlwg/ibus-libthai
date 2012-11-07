@@ -1,5 +1,13 @@
 2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Get rid of GObject warnings of unref-ing non-GObject.
+
+	* src/engine.c (ibus_libthai_engine_commit_chars):
+	  - Don't unref IBusText object, as GObject asserts that it's not
+	    a GObject.
+
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add preferences GUI for 'do_correct' flag.
 
 	* setup/dlg_setup.c:
