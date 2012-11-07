@@ -349,7 +349,6 @@ ibus_libthai_engine_commit_chars (IBusLibThaiEngine *libthai_engine,
   g_free (utf8);
 
   ibus_engine_commit_text (IBUS_ENGINE (libthai_engine), text);
-  g_object_unref (text);
 
   return TRUE;
 }
