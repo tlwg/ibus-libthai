@@ -1,5 +1,14 @@
 2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Add preferences GUI for 'do_correct' flag.
+
+	* setup/dlg_setup.c:
+	  - (ibus_libthai_setup_dialog_new): Add the checkbox widget.
+	  - (ibus_libthai_setup_set_values): Set the checkbox state.
+	  - (ibus_libthai_setup_get_values): Get the checkbox state.
+
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add 'do_correct' config and validate with new libthai API.
 
 	* src/ibus_config.h (IBusLibThaiSetupOptions):

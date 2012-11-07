@@ -158,6 +158,13 @@ ibus_libthai_setup_dialog_new ()
 
   g_object_set_data (G_OBJECT (main_dlg), "strict_check_radio", widget);
 
+  /* "Correct input sequences" check box */
+  widget = gtk_check_button_new_with_mnemonic (_("_Correct input sequences"));
+  gtk_widget_show (widget);
+  gtk_container_add (GTK_CONTAINER (main_vbox), widget);
+
+  g_object_set_data (G_OBJECT (main_dlg), "correct_input_checkbox", widget);
+
   return main_dlg;
 }
 
@@ -198,6 +205,10 @@ ibus_libthai_setup_set_values (const GtkDialog *dlg,
         break;
     }
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+
+  /* Set input sequence correction flag */
+  widget = g_object_get_data (G_OBJECT (dlg), "correct_input_checkbox");
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), opt->do_correct);
 }
 
 void
@@ -238,7 +249,9 @@ kb_map_done:
   opt->isc_mode = ISC_BASICCHECK;
 
 isc_mode_done:
-  return;
+  /* Check for input sequence correction flag */
+  widget = g_object_get_data (G_OBJECT (dlg), "correct_input_checkbox");
+  opt->do_correct = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 }
 
 /*
