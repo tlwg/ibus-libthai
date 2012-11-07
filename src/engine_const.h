@@ -24,6 +24,7 @@
 
 #define CONFIG_KB_LAYOUT  "kb_layout"
 #define CONFIG_ISC_MODE   "isc_mode"
+#define CONFIG_DO_CORRECT "do_correct"
 
 
 #endif /* __ENGINE_CONST_H__ */

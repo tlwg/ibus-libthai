@@ -45,6 +45,7 @@ struct _IBusLibThaiEngine
   short      buff_tail;
   ThaiKBMap  kb_map;
   thstrict_t isc_mode;
+  gboolean   do_correct;
 };
 
 struct _IBusLibThaiEngineClass
@@ -66,6 +67,8 @@ static void
 ibus_libthai_engine_remember_prev_chars (IBusLibThaiEngine *libthai_engine,
                                          tischar_t new_char);
 
+static thchar_t
+ibus_libthai_engine_get_prev_char (IBusLibThaiEngine *libthai_engine);
 static void
 ibus_libthai_engine_get_prev_cell (IBusLibThaiEngine *libthai_engine,
                                    struct thcell_t *res);
@@ -133,6 +136,7 @@ ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
   ibus_libthai_read_config (ibus_config, &opt);
   libthai_engine->kb_map = opt.thai_kb_map;
   libthai_engine->isc_mode = opt.isc_mode;
+  libthai_engine->do_correct = opt.do_correct;
 }
 
 static gboolean
@@ -159,6 +163,54 @@ ibus_libthai_engine_remember_prev_chars (IBusLibThaiEngine *libthai_engine,
       --libthai_engine->buff_tail;
     }
   libthai_engine->char_buff[libthai_engine->buff_tail++] = new_char;
+}
+
+static thchar_t
+ibus_libthai_engine_get_prev_char (IBusLibThaiEngine *libthai_engine)
+{
+  thchar_t c;
+
+  if (is_client_support_surrounding (IBUS_ENGINE (libthai_engine)))
+    {
+      IBusText *surrounding;
+      guint     cursor_pos;
+      guint     anchor_pos;
+      const gchar *s;
+      gchar    *tis_text = NULL;
+
+      ibus_engine_get_surrounding_text (IBUS_ENGINE (libthai_engine),
+                                        &surrounding, &cursor_pos, &anchor_pos);
+      s = ibus_text_get_text (surrounding);
+      cursor_pos = g_utf8_offset_to_pointer (s, cursor_pos) - s;
+      while (*s)
+        {
+          const gchar *t;
+
+          tis_text = g_convert (s, cursor_pos, "TIS-620", "UTF-8",
+                                NULL, NULL, NULL);
+          if (tis_text)
+            break;
+
+          t = g_utf8_next_char (s);
+          cursor_pos -= (t - s);
+          s = t;
+        }
+      if (tis_text)
+        {
+          gint char_index;
+
+          char_index = g_utf8_pointer_to_offset (s, s + cursor_pos);
+          c = tis_text[char_index - 1];
+          g_free (tis_text);
+        }
+    }
+  else
+    {
+      /* retrieve from the fallback buffer */
+      c = libthai_engine->char_buff[libthai_engine->buff_tail - 1];
+    }
+
+  return c;
 }
 
 static void
@@ -327,10 +379,25 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
       return FALSE;
     }
 
-  ibus_libthai_engine_get_prev_cell (libthai_engine, &context_cell);
   new_char = keyval_to_tis (libthai_engine->kb_map, keyval);
-  if (!th_validate (context_cell, new_char, &conv))
-    goto reject_char;
+
+  /* No correction -> just reject or commit */
+  if (!libthai_engine->do_correct)
+    {
+      thchar_t prev_char = ibus_libthai_engine_get_prev_char (libthai_engine);
+
+      if (!th_isaccept (prev_char, new_char, libthai_engine->isc_mode))
+        goto reject_char;
+
+      return ibus_libthai_engine_commit_chars (libthai_engine, &new_char, 1);
+    }
+
+  ibus_libthai_engine_get_prev_cell (libthai_engine, &context_cell);
+  if (!th_validate_leveled (context_cell, new_char, &conv,
+                            libthai_engine->isc_mode))
+    {
+      goto reject_char;
+    }
 
   if (conv.offset < 0)
     {
