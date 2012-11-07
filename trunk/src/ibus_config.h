@@ -30,6 +30,7 @@ struct _IBusLibThaiSetupOptions
 {
   ThaiKBMap  thai_kb_map;
   thstrict_t isc_mode;
+  gboolean   do_correct;
 };
 
 void ibus_libthai_read_config (IBusConfig *config,

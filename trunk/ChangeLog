@@ -1,3 +1,29 @@
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add 'do_correct' config and validate with new libthai API.
+
+	* src/ibus_config.h (IBusLibThaiSetupOptions):
+	  - Add 'do_correct' member.
+	* src/engine_const.h:
+	  - Add CONFIG_DO_CORRECT config item name.
+	* src/ibus_config.c (set_default_config, ibus_libthai_read_config,
+	  ibus_libthai_write_config):
+	  - Set, read, write the new config member.
+	* configure.ac:
+	  - Bump required libthai version to 0.1.18svn, the unreleased
+	    development version. Let's bump it again once the new libthai is
+	    released.
+	* src/engine.c:
+	  - (IBusLibThaiEngine): Add 'do_correct' member.
+	  - (ibus_libthai_engine_init): Initialize it.
+	  - (+ibus_libthai_engine_get_prev_char): Added for retrieving
+	    single-char context in case of no correction.
+	  - (ibus_libthai_engine_process_key_event):
+	    @ Add code for no-correction case.
+	    @ For correction case, call the new libthai th_validate_leveled()
+	      API so the input sequence is properly maintained for the
+	      given strictness level.
+
 2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Make Thai KB map types & vars consistent.
