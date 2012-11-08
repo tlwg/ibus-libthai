@@ -1,5 +1,13 @@
 2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Fix config I/O for GConf.
+
+	* src/ibus_config.c
+	  (ibus_libthai_read_config, ibus_libthai_write_config):
+	  - Read/write gint32 and boolean, not bytes.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add dialog source for translation.
 
 	* po/POTFILES.in: Add setup/dlg.c.
