@@ -22,13 +22,14 @@
 
 #define _(string) gettext(string)
 
+#define WIDGET_MARGINS 12
+
 GtkWidget *
 ibus_libthai_setup_dialog_new ()
 {
   GtkWidget *main_dlg;
   GtkWidget *main_vbox;
   GtkWidget *widget;
-  GtkWidget *alignment;
   GtkWidget *vbox;
   char      *markup;
   GtkRadioButton *last_radio;
@@ -41,34 +42,35 @@ ibus_libthai_setup_dialog_new ()
                                           NULL);
   /* Get the top level content vbox */
   main_vbox = gtk_dialog_get_content_area (GTK_DIALOG (main_dlg));
+  gtk_widget_set_margin_top (GTK_WIDGET (main_vbox), WIDGET_MARGINS);
+  gtk_widget_set_margin_left (GTK_WIDGET (main_vbox), WIDGET_MARGINS);
 
-  /* Keyboard Layout section */
+  /* Keyboard Layout section label */
   widget = gtk_label_new (NULL);
   markup = g_markup_printf_escaped ("<b>%s</b>", _("Keyboard layout:"));
   gtk_label_set_markup (GTK_LABEL (widget), markup);
   g_free (markup);
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (main_vbox), widget, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
+  gtk_widget_set_margin_right (widget, WIDGET_MARGINS);
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (main_vbox), widget, TRUE, FALSE, 0);
 
-  alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment);
-  gtk_container_add (GTK_CONTAINER (main_vbox), alignment);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
-
+  /* Keyboard layout vbox for radio buttons */
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+  gtk_widget_set_margin_left (vbox, WIDGET_MARGINS);
+  gtk_widget_set_margin_right (vbox, WIDGET_MARGINS);
   gtk_widget_show (vbox);
-  gtk_container_add (GTK_CONTAINER (alignment), vbox);
+  gtk_box_pack_start (GTK_BOX (main_vbox), vbox, TRUE, TRUE, 0);
 
   /* - Ketmanee keyboard layout */
   widget = gtk_radio_button_new_with_mnemonic (NULL, _("_Ketmanee"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
       widget,
       _("The traditional typewriter layout, the most "
       "popular one in the market.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
   last_radio = GTK_RADIO_BUTTON (widget);
 
   g_object_set_data (G_OBJECT (main_dlg), "ketmanee_radio", widget);
@@ -76,13 +78,13 @@ ibus_libthai_setup_dialog_new ()
   /* - TIS-820.2538 keyboard layout */
   widget = gtk_radio_button_new_with_mnemonic_from_widget (last_radio,
                                                            _("_TIS-820.2538"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
     widget,
     _("National standard layout derived from Ketmanee, "
     "with some extra characters.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
   last_radio = GTK_RADIO_BUTTON (widget);
 
   g_object_set_data (G_OBJECT (main_dlg), "tis_radio", widget);
@@ -90,43 +92,42 @@ ibus_libthai_setup_dialog_new ()
   /* - Pattachote keyboard layout */
   widget = gtk_radio_button_new_with_mnemonic_from_widget (last_radio,
                                                            _("_Pattachote"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
       widget,
       _("Keyboard layout designed by Sarit Pattachote "
       "from a statistical research.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
 
   g_object_set_data (G_OBJECT (main_dlg), "pattachote_radio", widget);
 
-  /* Input Sequence Check section */
+  /* Input Sequence Check section label */
   widget = gtk_label_new (NULL);
   markup = g_markup_printf_escaped ("<b>%s</b>",
                                     _("Input sequence check mode:"));
   gtk_label_set_markup (GTK_LABEL (widget), markup);
   g_free (markup);
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (main_vbox), widget, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
+  gtk_widget_set_margin_right (widget, WIDGET_MARGINS);
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (main_vbox), widget, TRUE, FALSE, 0);
 
-  alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment);
-  gtk_container_add (GTK_CONTAINER (main_vbox), alignment);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
-
+  /* Input Sequence Check vbox for radio buttons */
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+  gtk_widget_set_margin_left (vbox, WIDGET_MARGINS);
+  gtk_widget_set_margin_right (vbox, WIDGET_MARGINS);
   gtk_widget_show (vbox);
-  gtk_container_add (GTK_CONTAINER (alignment), vbox);
+  gtk_box_pack_start (GTK_BOX (main_vbox), vbox, TRUE, TRUE, 0);
 
   /* - "No Check" choice */
   widget = gtk_radio_button_new_with_mnemonic (NULL, _("_No Check"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
     widget,
     _("Let all key sequences pass through.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
   last_radio = GTK_RADIO_BUTTON (widget);
 
   g_object_set_data (G_OBJECT (main_dlg), "no_check_radio", widget);
@@ -134,14 +135,13 @@ ibus_libthai_setup_dialog_new ()
   /* - "Basic Check" choice */
   widget = gtk_radio_button_new_with_mnemonic_from_widget (last_radio,
                                                            _("_Basic Check"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget,
-                      FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
     widget,
     _("Check using basic rule, just to guarantee "
     "character order to be suitable for display.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
   last_radio = GTK_RADIO_BUTTON (widget);
 
   g_object_set_data (G_OBJECT (main_dlg), "basic_check_radio", widget);
@@ -149,23 +149,24 @@ ibus_libthai_setup_dialog_new ()
   /* - "Strict Check" choice */
   widget = gtk_radio_button_new_with_mnemonic_from_widget (last_radio,
                                                            _("_Strict Check"));
-  gtk_widget_show (widget);
-  gtk_box_pack_start (GTK_BOX (vbox), widget, FALSE, FALSE, 0);
   gtk_widget_set_tooltip_text (
     widget,
     _("Check using more strict orthographical rules.")
   );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
 
   g_object_set_data (G_OBJECT (main_dlg), "strict_check_radio", widget);
 
   /* "Correct input sequences" check box */
   widget = gtk_check_button_new_with_mnemonic (_("_Correct input sequences"));
-  gtk_widget_show (widget);
   gtk_widget_set_tooltip_text (
     widget,
     _("Also try to correct wrong input sequences.")
   );
-  gtk_container_add (GTK_CONTAINER (main_vbox), widget);
+  gtk_widget_show (widget);
+  gtk_widget_set_margin_right (widget, WIDGET_MARGINS);
+  gtk_box_pack_end (GTK_BOX (main_vbox), widget, TRUE, FALSE, 0);
 
   g_object_set_data (G_OBJECT (main_dlg), "correct_input_checkbox", widget);
 
