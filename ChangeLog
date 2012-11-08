@@ -1,3 +1,10 @@
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add tooltip to correct_input_checkbox.
+
+	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Add tooltip to correct_input_checkbox.
+
 2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Get rid of GObject warnings of unref-ing non-GObject.

@@ -161,6 +161,10 @@ ibus_libthai_setup_dialog_new ()
   /* "Correct input sequences" check box */
   widget = gtk_check_button_new_with_mnemonic (_("_Correct input sequences"));
   gtk_widget_show (widget);
+  gtk_widget_set_tooltip_text (
+    widget,
+    _("Also try to correct wrong input sequences.")
+  );
   gtk_container_add (GTK_CONTAINER (main_vbox), widget);
 
   g_object_set_data (G_OBJECT (main_dlg), "correct_input_checkbox", widget);
