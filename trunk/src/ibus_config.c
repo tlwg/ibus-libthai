@@ -38,25 +38,31 @@ ibus_libthai_read_config (IBusConfig *config,
 
   /* Get keyboard layout */
   val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT);
-  if (val && g_variant_is_of_type (val, G_VARIANT_TYPE_BYTE))
+  if (val)
     {
-      opt->thai_kb_map = g_variant_get_byte (val);
+      gint32    v;
+      g_variant_get (val, "i", &v);
+      opt->thai_kb_map = v;
       g_variant_unref (val);
     }
 
   /* Get input sequence check mode */
   val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_ISC_MODE);
-  if (val && g_variant_is_of_type (val, G_VARIANT_TYPE_BYTE))
+  if (val)
     {
-      opt->isc_mode = g_variant_get_byte (val);
+      gint32    v;
+      g_variant_get (val, "i", &v);
+      opt->isc_mode = v;
       g_variant_unref (val);
     }
 
   /* Get input sequence correction flag */
   val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_DO_CORRECT);
-  if (val && g_variant_is_of_type (val, G_VARIANT_TYPE_BYTE))
+  if (val)
     {
-      opt->do_correct = g_variant_get_byte (val);
+      gboolean  b;
+      g_variant_get (val, "b", &b);
+      opt->do_correct = b;
       g_variant_unref (val);
     }
 }
@@ -68,15 +74,15 @@ ibus_libthai_write_config (IBusConfig *config,
   GVariant *val;
 
   /* Set keyboard layout */
-  val = g_variant_new_byte (opt->thai_kb_map);
+  val = g_variant_new_int32 (opt->thai_kb_map);
   ibus_config_set_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT, val);
 
   /* Set input sequence check mode */
-  val = g_variant_new_byte (opt->isc_mode);
+  val = g_variant_new_int32 (opt->isc_mode);
   ibus_config_set_value (config, CONFIG_SECTION, CONFIG_ISC_MODE, val);
 
   /* Set input sequence correction flag */
-  val = g_variant_new_byte (opt->do_correct);
+  val = g_variant_new_boolean (opt->do_correct);
   ibus_config_set_value (config, CONFIG_SECTION, CONFIG_DO_CORRECT, val);
 }
 
