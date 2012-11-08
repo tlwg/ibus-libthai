@@ -1,5 +1,11 @@
 2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Add dialog source for translation.
+
+	* po/POTFILES.in: Add setup/dlg.c.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Make preferences dialog scale with window size.
 
 	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
