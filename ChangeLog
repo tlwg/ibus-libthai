@@ -1,5 +1,16 @@
 2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Make preferences dialog scale with window size.
+
+	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Make widgets expand with container box.
+	  - Drop GtkAlignment usage and use widget margins instead, so that
+	    the children get expanded with the container.
+	  - Add margins around dialog content area.
+	  - Rearrange call sequence for each widget.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add tooltip to correct_input_checkbox.
 
 	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
