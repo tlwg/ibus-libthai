@@ -1,3 +1,9 @@
+2012-11-12  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add missing backslash.
+
+	* icons/Makefile.am: Add missing continuation backslash.
+
 2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Fix config I/O for GConf.
