@@ -310,28 +310,6 @@ keyval_to_tis (ThaiKBMap thai_kb_map, guint keyval)
     return (tischar_t)(keyval - 0x01000e01) + 0xa1;
 
   return 0;
-/*
-  gchar     key_utf8[6];
-  int       len;
-  tischar_t key_tis;
-
-  key_tis = 0;
-
-  len = g_unichar_to_utf8 (gdk_keyval_to_unicode (keyval), key_utf8);
-  if (len > 0)
-    {
-      gchar *key_tis_str;
-      key_tis_str = g_convert (key_utf8, len, "TIS-620", "UTF-8",
-                               NULL, NULL, NULL);
-      if (key_tis_str)
-        {
-          key_tis = key_tis_str[0];
-          g_free (key_tis_str);
-        }
-    }
-
-  return key_tis;
-*/
 }
 
 static gboolean
