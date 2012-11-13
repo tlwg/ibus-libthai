@@ -357,6 +357,8 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
     }
 
   new_char = keyval_to_tis (libthai_engine->kb_map, keyval);
+  if (0 == new_char)
+    return FALSE;
 
   /* No correction -> just reject or commit */
   if (!libthai_engine->do_correct)

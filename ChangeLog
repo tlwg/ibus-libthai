@@ -1,5 +1,12 @@
 2012-11-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Pass unhandled keysyms over to app.
+
+	* src/engine.c (ibus_libthai_engine_process_key_event):
+	  - Return FALSE for unknown keysyms.
+
+2012-11-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Remove usused code.
 
 	* src/engine.c (keyval_to_tis):
