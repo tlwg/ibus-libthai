@@ -1,3 +1,11 @@
+2013-01-29  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Bump libthai dep to 0.1.19.
+
+	* configure.ac:
+	  - libthai 0.1.19 has been released, require it instead of SVN
+	    snapshot.
+
 2012-11-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Pass unhandled keysyms over to app.
