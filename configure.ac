@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.68])
 AC_INIT([ibus-libthai], [0.1.0], [thep@linux.thai.net])
-AM_INIT_AUTOMAKE([1.10])
+AM_INIT_AUTOMAKE([dist-xz no-dist-gzip])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
