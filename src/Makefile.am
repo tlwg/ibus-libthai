@@ -44,7 +44,7 @@ ibus_engine_libthai_LDADD = \
 noinst_LIBRARIES = libibus-libthai-config.a
 
 libibus_libthai_config_a_SOURCES = \
-	ibus_config.c
+	ibus_config.c \
 	$(NULL)
 
 libibus_libthai_config_a_CFLAGS = \
