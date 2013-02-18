@@ -1,5 +1,14 @@
 2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Adjust icon.
+
+	* icons/ibus-libthai.svg:
+	  - Enlarge character.
+	  - Convert text to path, so it does not require external font.
+	  - Adjust color, add outline stroke, add drop shadow.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add missing file in distribution.
 
 	* icons/Makefile.am:
