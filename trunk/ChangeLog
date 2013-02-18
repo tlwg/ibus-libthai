@@ -1,3 +1,10 @@
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add missing backslash in Makefile.
+
+	* src/Makefile.am:
+	  - Add missing backslash at line end for source file list.
+
 2013-01-29  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Bump libthai dep to 0.1.19.
