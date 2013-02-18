@@ -1,5 +1,12 @@
 2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Switch to XZ tarball compression.
+
+	* configure.ac:
+	  - Invoke AM_INIT_AUTOMAKE with dist-xz, no-dist-gzip options.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Adjust icon.
 
 	* icons/ibus-libthai.svg:
