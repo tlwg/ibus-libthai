@@ -1,5 +1,12 @@
 2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Add missing file in distribution.
+
+	* icons/Makefile.am:
+	  - Add ibus-libthai.svg to EXTRA_DIST.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	Add missing backslash in Makefile.
 
 	* src/Makefile.am:
