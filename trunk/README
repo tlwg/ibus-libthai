@@ -12,9 +12,10 @@ Currently, it provides 3 keyboard layouts internally:
   - Ketmanee
   - Pattachote
   - TIS-820.2538
+(Thai XKB symbols are also supported.)
 
-In addition to keyboard layout supports, it also filters out invalid input
-sequences with 3 levels of strictness:
+The input method also filters out invalid input sequences with 3 levels of
+strictness:
   - Passthrough (no check)
   - Basic Check
   - Srict Check
