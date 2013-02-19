@@ -1,0 +1,4 @@
+# List of source files which contain translatable strings.
+src/engine.c
+src/main.c
+setup/dlg_setup.c

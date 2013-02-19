@@ -1,0 +1,26 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<!-- filename: libthai.xml -->
+<component>
+  <name>org.freedesktop.IBus.LibThai</name>
+  <description>LibThai Component</description>
+  <exec>${libexecdir}/ibus-engine-libthai --ibus</exec>
+  <version>@VERSION@</version>
+  <license>GPL</license>
+  <author>Theppitak Karoonboonyanan &lt;thep@linux.thai.net&gt;</author>
+  <homepage>http://linux.thai.net/project/libthai</homepage>
+  <textdomain>ibus-libthai</textdomain>
+  <engines>
+    <engine>
+      <name>libthai</name>
+      <language>th</language>
+      <license>GPL</license>
+      <author>Theppitak Karoonboonyanan &lt;thep@linux.thai.net&gt;</author>
+      <icon>${pkgdatadir}/icons/ibus-libthai.svg</icon>
+      <layout>th</layout>
+      <longname>LibThai</longname>
+      <description>LibThai-based input method</description>
+      <setup>${libexecdir}/ibus-setup-libthai</setup>
+      <rank>0</rank>
+    </engine>
+  </engines>
+</component>
