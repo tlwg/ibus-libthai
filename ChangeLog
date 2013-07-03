@@ -1,5 +1,17 @@
 2013-07-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Use scancode mapping instead of keysym mapping.
+
+	* src/thaikb.h, src/thaikb.c (+thai_map_keycode):
+	  - Add keycode-to-TIS mapping function, with the map tables.
+	* src/engine.c (+keycode_to_tis):
+	  - Add the wrapper for mapping.
+	* src/engine.c (ibus_libthai_engine_process_key_event):
+	  - Call keycode_to_tis(), with shift level, instead of
+	    keyval_to_tis().
+
+2013-07-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	* configure.ac:
 	  - Post-release version suffix added.
 

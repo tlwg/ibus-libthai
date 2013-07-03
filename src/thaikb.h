@@ -30,6 +30,7 @@ enum _ThaiKBMap
 };
 
 unsigned char thai_map_qwerty (ThaiKBMap map, unsigned char c);
+unsigned char thai_map_keycode (ThaiKBMap map, int keycode, int shift_lv);
 
 #endif /* __THAIKB_H__ */
  

@@ -312,6 +312,12 @@ keyval_to_tis (ThaiKBMap thai_kb_map, guint keyval)
   return 0;
 }
 
+static tischar_t
+keycode_to_tis (ThaiKBMap thai_kb_map, guint keycode, gint shift_lv)
+{
+  return thai_map_keycode (thai_kb_map, keycode, shift_lv);
+}
+
 static gboolean
 ibus_libthai_engine_commit_chars (IBusLibThaiEngine *libthai_engine,
                                   tischar_t *s, gsize len)
@@ -340,6 +346,7 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
   IBusLibThaiEngine *libthai_engine = IBUS_LIBTHAI_ENGINE (engine);
   struct thcell_t context_cell;
   struct thinpconv_t conv;
+  int    shift_lv;
   tischar_t new_char;
 
   if (modifiers & IBUS_RELEASE_MASK)
@@ -356,7 +363,9 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
       return FALSE;
     }
 
-  new_char = keyval_to_tis (libthai_engine->kb_map, keyval);
+  shift_lv = !(modifiers & (IBUS_SHIFT_MASK | IBUS_MOD5_MASK)) ? 0
+               : ((modifiers & IBUS_MOD5_MASK) ? 2 : 1);
+  new_char = keycode_to_tis (libthai_engine->kb_map, keycode, shift_lv);
   if (0 == new_char)
     return FALSE;
 
