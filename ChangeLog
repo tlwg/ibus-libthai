@@ -1,3 +1,13 @@
+2013-07-10  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Update icon.
+
+	* icons/ibus-libthai.svg:
+	  - Use regular weight instead of bold face.
+	  - Use gradient and outline to improve visibility on various
+	    background colors.
+	  - Unblur shadow and use alpha channel instead.
+
 2013-07-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Use scancode mapping instead of keysym mapping.
