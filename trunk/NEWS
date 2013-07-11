@@ -1,3 +1,8 @@
+Version 0.1.1 (2013-07-11)
+=============
+- Map keyboard scan codes directly instead of relying on XKB key symbols,
+  to avoid unexpected double-mapping on ASCII characters in Thai layouts.
+
 Version 0.1.0 (2013-02-19)
 =============
 - Initial release.
