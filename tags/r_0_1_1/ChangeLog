@@ -1,0 +1,279 @@
+2013-07-11  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	* configure.ac, NEWS:
+	  === Version 0.1.1 ===
+
+2013-07-10  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Update icon.
+
+	* icons/ibus-libthai.svg:
+	  - Use regular weight instead of bold face.
+	  - Use gradient and outline to improve visibility on various
+	    background colors.
+	  - Unblur shadow and use alpha channel instead.
+
+2013-07-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Use scancode mapping instead of keysym mapping.
+
+	* src/thaikb.h, src/thaikb.c (+thai_map_keycode):
+	  - Add keycode-to-TIS mapping function, with the map tables.
+	* src/engine.c (+keycode_to_tis):
+	  - Add the wrapper for mapping.
+	* src/engine.c (ibus_libthai_engine_process_key_event):
+	  - Call keycode_to_tis(), with shift level, instead of
+	    keyval_to_tis().
+
+2013-07-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	* configure.ac:
+	  - Post-release version suffix added.
+
+2013-02-19  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	* NEWS:
+	  === Version 0.1.0 ===
+
+2013-02-19  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Adjust README.
+
+	* README:
+	  - Add that XKB symbols are also supported.
+	  - A little wording adjustment.
+
+2013-02-19  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Write README contents.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Switch to XZ tarball compression.
+
+	* configure.ac:
+	  - Invoke AM_INIT_AUTOMAKE with dist-xz, no-dist-gzip options.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Adjust icon.
+
+	* icons/ibus-libthai.svg:
+	  - Enlarge character.
+	  - Convert text to path, so it does not require external font.
+	  - Adjust color, add outline stroke, add drop shadow.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add missing file in distribution.
+
+	* icons/Makefile.am:
+	  - Add ibus-libthai.svg to EXTRA_DIST.
+
+2013-02-18  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add missing backslash in Makefile.
+
+	* src/Makefile.am:
+	  - Add missing backslash at line end for source file list.
+
+2013-01-29  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Bump libthai dep to 0.1.19.
+
+	* configure.ac:
+	  - libthai 0.1.19 has been released, require it instead of SVN
+	    snapshot.
+
+2012-11-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Pass unhandled keysyms over to app.
+
+	* src/engine.c (ibus_libthai_engine_process_key_event):
+	  - Return FALSE for unknown keysyms.
+
+2012-11-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Remove usused code.
+
+	* src/engine.c (keyval_to_tis):
+	  - Remove unused code.
+
+2012-11-12  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add missing backslash.
+
+	* icons/Makefile.am: Add missing continuation backslash.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Fix config I/O for GConf.
+
+	* src/ibus_config.c
+	  (ibus_libthai_read_config, ibus_libthai_write_config):
+	  - Read/write gint32 and boolean, not bytes.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add dialog source for translation.
+
+	* po/POTFILES.in: Add setup/dlg.c.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Make preferences dialog scale with window size.
+
+	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Make widgets expand with container box.
+	  - Drop GtkAlignment usage and use widget margins instead, so that
+	    the children get expanded with the container.
+	  - Add margins around dialog content area.
+	  - Rearrange call sequence for each widget.
+
+2012-11-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add tooltip to correct_input_checkbox.
+
+	* src/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Add tooltip to correct_input_checkbox.
+
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Get rid of GObject warnings of unref-ing non-GObject.
+
+	* src/engine.c (ibus_libthai_engine_commit_chars):
+	  - Don't unref IBusText object, as GObject asserts that it's not
+	    a GObject.
+
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add preferences GUI for 'do_correct' flag.
+
+	* setup/dlg_setup.c:
+	  - (ibus_libthai_setup_dialog_new): Add the checkbox widget.
+	  - (ibus_libthai_setup_set_values): Set the checkbox state.
+	  - (ibus_libthai_setup_get_values): Get the checkbox state.
+
+2012-11-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add 'do_correct' config and validate with new libthai API.
+
+	* src/ibus_config.h (IBusLibThaiSetupOptions):
+	  - Add 'do_correct' member.
+	* src/engine_const.h:
+	  - Add CONFIG_DO_CORRECT config item name.
+	* src/ibus_config.c (set_default_config, ibus_libthai_read_config,
+	  ibus_libthai_write_config):
+	  - Set, read, write the new config member.
+	* configure.ac:
+	  - Bump required libthai version to 0.1.18svn, the unreleased
+	    development version. Let's bump it again once the new libthai is
+	    released.
+	* src/engine.c:
+	  - (IBusLibThaiEngine): Add 'do_correct' member.
+	  - (ibus_libthai_engine_init): Initialize it.
+	  - (+ibus_libthai_engine_get_prev_char): Added for retrieving
+	    single-char context in case of no correction.
+	  - (ibus_libthai_engine_process_key_event):
+	    @ Add code for no-correction case.
+	    @ For correction case, call the new libthai th_validate_leveled()
+	      API so the input sequence is properly maintained for the
+	      given strictness level.
+
+2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Make Thai KB map types & vars consistent.
+
+	* src/thaikb.h, src/thaikb.c (ThaiKBMap, thai_map_qwerty):
+	  - ThaiKBMode -> ThaiKBMap type.
+	  - (thai_map_qwerty): layout -> map arg.
+
+	* src/ibus_config.h, src/ibus_config.c, setup/dlg_setup.c
+	  (IBusLibThaiSetupOptions):
+	  - thai_kb_mode -> thai_kb_map member.
+
+	* src/engine.c (IBusLibThaiEngine, keyval_to_tis):
+	  - kb_layout -> kb_map member.
+	  - thai_int_layout -> thai_kb_map arg.
+
+2012-11-05  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add setup UI (WIP).
+
+	Known problem: ibus config fails (with DBus errors) to read/write
+	with ibus 1.4.1-8 on Debian.
+
+	* configure.ac, src/Makefile.am, +src/engine_const.h,
+	  +src/ibus_config.h, +src/ibus_config.c:
+	  - Add common code as static lib for reading/writing configurations.
+	  - This also requires AC_PROG_RANLIB in configure.
+
+	* configure.ac, Makefile.am, +setup/Makefile.am, +setup/setup.c,
+	  +setup/dlg_setup.h, +setup/dlg_setup.c:
+	  - Add GUI for preferences setup.
+	  - This also requires gtk+-3.0 in configure.
+
+	* src/engine.c, src/engine.h, src/main.c:
+	  - Add kb_layout member to IBusLibThaiEngine.
+	  - Read config for keyboard layout and ISC mode.
+
+	* src/engine.c (keyval_to_tis, ibus_libthai_engine_process_key_event),
+	  src/thaikb.h, src/thaikb.c (thai_map_qwerty, -thai_set_keyboard):
+	  - (keyval_to_tis) takes keyboard layout as argument.
+	  - (ibus_libthai_engine_process_key_event) calls keyval_to_tis with
+	    engine's keyboard layout config.
+	  - (thai_map_qwerty) takes keyboard layout as argument and look up
+	    keys with two-dimensional array.
+	  - (thai_set_keyboard) is now obsolete.
+
+	* src/libthai.xml.in.in:
+	  - Add 'setup' element.
+
+2012-11-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Reformat hex numbers in key map.
+
+	* src/thaikb.c (ketmanee_qwerty_map, pattachote_qwerty_map,
+	  tis_qwerty_map):
+	  - Reformat hex numbers to two-digit lower cases.
+
+2012-11-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add Pattachote key map.
+
+	* src/thaikb.h (enum _ThaiKBMode):
+	* src/thaikb.c (pattachote_qwerty_map, thai_set_keyboard):
+	  - Add Pattachote QWERTY-to-TH map.
+
+2012-11-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Fix missing quotation marks in XML.
+
+	* src/libthai.xml.in.in:
+	  - Escape quotation marks so they get preserved on shell evaluation.
+
+2012-11-03  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Do the most likely case first for key mapping.
+
+	* src/engine.c (keyval_to_tis):
+	  - Check & convert English keysyms first.
+
+2012-11-02  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Add internal QWERTY-to-TH keyboard mapping.
+
+	* src/Makefile.am, +src/thaikb.h, +src/thaikb.c:
+	  - Add internal QWERTY-to-TH keyboard mapping.
+
+	* src/engine.c (keyval_to_tis):
+	  - If keyval is in English range, map it to Thai TIS-620 char.
+
+2012-11-02  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	* First working version.
+
+2011-12-13  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	* First create the project.
+
