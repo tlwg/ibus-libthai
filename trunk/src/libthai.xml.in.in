@@ -16,7 +16,7 @@
       <license>GPL</license>
       <author>Theppitak Karoonboonyanan &lt;thep@linux.thai.net&gt;</author>
       <icon>${pkgdatadir}/icons/ibus-libthai.svg</icon>
-      <layout>th</layout>
+      <layout>us</layout>
       <longname>LibThai</longname>
       <description>LibThai-based input method</description>
       <setup>${libexecdir}/ibus-setup-libthai</setup>

@@ -1,5 +1,14 @@
 2013-09-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	Use "us" layout to allow shortcut keys.
+
+	* src/libthai.xml.in.in:
+	* src/utils.c (ibus_libthai_get_component):
+	  - Declare engine's keyboard layout as "us". This allows program
+	    shortcut keys (e.g. Ctrl-W) while the engine is being active.
+
+2013-09-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	* configure.ac:
 	  - Post-release version suffix added.
 
