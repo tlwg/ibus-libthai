@@ -50,7 +50,7 @@ ibus_libthai_get_component ()
                                                        "GPL",
                                                        "Theppitak Karoonboonyanan <thep@linux.thai.net>",
                                                        PKGDATADIR"/icons/ibus-libthai.svg",
-                                                       "us"));
+                                                       "us,th"));
     }
 
   return component;
