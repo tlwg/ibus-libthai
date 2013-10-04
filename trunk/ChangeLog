@@ -1,3 +1,15 @@
+2013-10-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Use "us,th" layout to allow Thai accelerators.
+
+	* src/libthai.xml.in.in:
+	* src/utils.c (ibus_libthai_get_component):
+	  - Declare engine's keyboard layout as "us,th". This also allows
+	    Thai UI accelerators (e.g. Alt-<FoFan>) while the engine is
+	    active. (Note: the ideal solution should be to have the key event
+	    handler translate the keycode with internal map. Unfortunately,
+	    ibus_engine_forward_key_event() just doesn't work as expected.)
+
 2013-09-07  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Use "us" layout to allow shortcut keys.
