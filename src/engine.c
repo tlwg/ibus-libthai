@@ -365,9 +365,23 @@ ibus_libthai_engine_process_key_event (IBusEngine *engine,
 
   shift_lv = !(modifiers & (IBUS_SHIFT_MASK | IBUS_MOD5_MASK)) ? 0
                : ((modifiers & IBUS_MOD5_MASK) ? 2 : 1);
-  new_char = keycode_to_tis (libthai_engine->kb_map, keycode, shift_lv);
-  if (0 == new_char)
-    return FALSE;
+
+  /* Translate numpad to Thai digits on shift levels 1, 2 */
+  if ((IBUS_KEY_KP_0 <= keyval) && (keyval <= IBUS_KEY_KP_9)
+         /* When a numpad keysym is got while NumLock is off, by means of
+            Shift modifier, it should get Arabic digit, not Thai.
+            So, only translate it when NumLock is on. */
+      && (modifiers & IBUS_MOD2_MASK)
+      && ((2 == shift_lv) || (modifiers & IBUS_LOCK_MASK)))
+    {
+      new_char = keyval - IBUS_KEY_KP_0 + 0xf0;
+    }
+  else
+    {
+      new_char = keycode_to_tis (libthai_engine->kb_map, keycode, shift_lv);
+      if (0 == new_char)
+        return FALSE;
+    }
 
   /* No correction -> just reject or commit */
   if (!libthai_engine->do_correct)

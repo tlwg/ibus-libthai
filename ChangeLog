@@ -1,3 +1,13 @@
+2013-10-30  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
+	Allow typing Thai digits using numpad with CapsLock or level 3.
+
+	* src/engine.c (ibus_libthai_engine_process_key_event):
+	  - Check for numpad keys with CapsLock or level 3 shift and translate
+	    them to Thai digits.
+	  - When a numpad keysym is got while NumLock is off, by means of
+	    Shift modifier, it should get Arabic digit, not Thai.
+
 2013-10-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	Use "us,th" layout to allow Thai accelerators.
