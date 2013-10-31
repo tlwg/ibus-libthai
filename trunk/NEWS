@@ -1,3 +1,8 @@
+Version 0.1.2 (2013-10-31)
+=============
+- Fix keyboard shortcuts & Thai accelerators problems with iBus 1.5.
+- Allow typing Thai digits using numpad with CapsLock or level 3.
+
 Version 0.1.1 (2013-07-11)
 =============
 - Map keyboard scan codes directly instead of relying on XKB key symbols,

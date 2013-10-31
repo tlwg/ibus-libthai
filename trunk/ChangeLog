@@ -1,5 +1,10 @@
 2013-10-31  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
+	* configure.ac, NEWS:
+	  === Version 0.1.2 ===
+
+2013-10-31  Theppitak Karoonboonyanan  <thep@linux.thai.net>
+
 	* po/th.po: Regenerated. Updated copyright years.
 
 2013-10-30  Theppitak Karoonboonyanan  <thep@linux.thai.net>
