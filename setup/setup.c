@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
- *  Copyright (C) 2012 Theppitak Karoonboonyanan <thep@linux.thai.net>
+ *  Copyright (C) 2012 Theppitak Karoonboonyanan <theppitak@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ main (int argc, char **argv)
     {
       g_print (
         PACKAGE " (setup component) " VERSION "\n"
-        "Copyright (C) 2012 Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+        "Copyright (C) 2012 Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
         "License: GNU GPL2 or later <http://www.gnu.org/licenses/gpl-2.0.html>\n"
         "\n"
         "This is free software; see the source for copying conditions.\n"

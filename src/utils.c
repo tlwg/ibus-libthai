@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /*
- *  Copyright (C) 2011 Theppitak Karoonboonyanan <thep@linux.thai.net>
+ *  Copyright (C) 2011 Theppitak Karoonboonyanan <theppitak@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ ibus_libthai_get_component ()
                                       "LibThai Component",
                                       VERSION,
                                       "GPL",
-                                      "Theppitak Karoonboonyanan <thep@linux.thai.net>",
+                                      "Theppitak Karoonboonyanan <theppitak@gmail.com>",
                                       "http://linux.thai.net/project/libthai",
                                       "",
                                       "ibus-libthai");
@@ -48,7 +48,7 @@ ibus_libthai_get_component ()
                                                        "LibThai-based input method",
                                                        "th",
                                                        "GPL",
-                                                       "Theppitak Karoonboonyanan <thep@linux.thai.net>",
+                                                       "Theppitak Karoonboonyanan <theppitak@gmail.com>",
                                                        PKGDATADIR"/icons/ibus-libthai.svg",
                                                        "us,th"));
     }

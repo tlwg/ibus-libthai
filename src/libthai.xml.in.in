@@ -6,7 +6,7 @@
   <exec>${libexecdir}/ibus-engine-libthai --ibus</exec>
   <version>@VERSION@</version>
   <license>GPL</license>
-  <author>Theppitak Karoonboonyanan &lt;thep@linux.thai.net&gt;</author>
+  <author>Theppitak Karoonboonyanan &lt;theppitak@gmail.com&gt;</author>
   <homepage>http://linux.thai.net/project/libthai</homepage>
   <textdomain>ibus-libthai</textdomain>
   <engines>
@@ -14,7 +14,7 @@
       <name>libthai</name>
       <language>th</language>
       <license>GPL</license>
-      <author>Theppitak Karoonboonyanan &lt;thep@linux.thai.net&gt;</author>
+      <author>Theppitak Karoonboonyanan &lt;theppitak@gmail.com&gt;</author>
       <icon>${pkgdatadir}/icons/ibus-libthai.svg</icon>
       <layout>us,th</layout>
       <longname>LibThai</longname>
