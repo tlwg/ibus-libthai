@@ -1,5 +1,17 @@
 2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Replace deprecated GtkWidget margin functions.
+
+	* setup/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Replace deprecated gtk_widget_set_margin_left() and
+	    gtk_widget_set_margin_right() (since GTK+ 3.12) with
+	    gtk_widget_set_margin_start() and gtk_widget_set_margin_end()
+	    respectively.
+	* configure.ac:
+	  - Require GTK+ >= 3.12.
+
+2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Drop deprecated GtkStock.
 
 	* setup/dlg_setup.c (ibus_libthai_setup_dialog_new):
