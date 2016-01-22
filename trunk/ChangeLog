@@ -1,5 +1,13 @@
 2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Drop deprecated GtkStock.
+
+	* setup/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Replace deprecated GTK_STOCK* (since GTK+ 3.10) with
+	    literal labels, as suggested in the reference.
+
+2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add missing include
 
 	* src/ibus_config.c:
