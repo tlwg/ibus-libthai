@@ -20,6 +20,8 @@
 #include "ibus_config.h"
 #include "engine_const.h"
 
+#include <stdlib.h>
+
 static void
 set_default_config (IBusLibThaiSetupOptions *opt)
 {

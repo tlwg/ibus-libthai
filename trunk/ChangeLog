@@ -1,3 +1,10 @@
+2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add missing include
+
+	* src/ibus_config.c:
+	  - Add missing include for system().
+
 2016-01-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update my e-mail address.
