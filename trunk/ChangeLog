@@ -1,5 +1,15 @@
 2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Replace deprecated GtkMisc alignment functions.
+
+	* setup/dlg_setup.c (ibus_libthai_setup_dialog_new):
+	  - Replace deprecated gtk_misc_set_alignment() (since GTK+ 3.16)
+	    with gtk_label_set_xalign() and gtk_label_set_yalign().
+	* configure.ac:
+	  - Require GTK+ >= 3.16.
+
+2016-01-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Replace deprecated GtkWidget margin functions.
 
 	* setup/dlg_setup.c (ibus_libthai_setup_dialog_new):
