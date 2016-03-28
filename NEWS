@@ -1,3 +1,8 @@
+Version 0.1.3 (2016-03-28)
+=============
+- Get rid of deprecated GTK+ APIs in setup program, now requiring GTK+ >= 3.16.
+- Fix compiler warnings.
+
 Version 0.1.2 (2013-10-31)
 =============
 - Fix keyboard shortcuts & Thai accelerators problems with iBus 1.5.

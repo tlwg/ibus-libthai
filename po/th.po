@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libthai 0.1.0\n"
-"Report-Msgid-Bugs-To: theppitak@gmail.com\n"
-"POT-Creation-Date: 2016-01-22 12:28+0700\n"
+"Report-Msgid-Bugs-To: thep@linux.thai.net\n"
+"POT-Creation-Date: 2016-03-28 12:38+0700\n"
 "PO-Revision-Date: 2016-01-22 12:31+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Create main window
 #: setup/dlg_setup.c:38
 msgid "IBus LibThai Preferences"
 msgstr "ปรับแต่ง IBus LibThai"
@@ -33,69 +32,66 @@ msgstr "_ตกลง"
 msgid "Keyboard layout:"
 msgstr "ผังแป้นพิมพ์:"
 
-#. - Ketmanee keyboard layout
-#: setup/dlg_setup.c:66
+#: setup/dlg_setup.c:67
 msgid "_Ketmanee"
 msgstr "เ_กษมณี"
 
-#: setup/dlg_setup.c:69
+#: setup/dlg_setup.c:70
 msgid "The traditional typewriter layout, the most popular one in the market."
 msgstr "ผังแป้นพิมพ์ของพิมพ์ดีดทั่วไป ซึ่งเป็นผังที่แพร่หลายที่สุดในตลาด"
 
-#: setup/dlg_setup.c:80
+#: setup/dlg_setup.c:81
 msgid "_TIS-820.2538"
 msgstr "ม_อก. 820-2538"
 
-#: setup/dlg_setup.c:83
+#: setup/dlg_setup.c:84
 msgid ""
 "National standard layout derived from Ketmanee, with some extra characters."
 msgstr "ผังแป้นพิมพ์มาตรฐานผลิตภัณฑ์อุตสาหกรรม ปรับเปลี่ยนจากเกษมณี โดยมีอักขระพิเศษเพิ่มเติม"
 
-#: setup/dlg_setup.c:94
+#: setup/dlg_setup.c:95
 msgid "_Pattachote"
 msgstr "_ปัตตะโชติ"
 
-#: setup/dlg_setup.c:97
+#: setup/dlg_setup.c:98
 msgid ""
 "Keyboard layout designed by Sarit Pattachote from a statistical research."
 msgstr "ผังแป้นพิมพ์ซึ่งออกแบบโดยคุณสฤษดิ์ ปัตตะโชติ จากงานวิจัยทางสถิติ"
 
-#: setup/dlg_setup.c:108
+#: setup/dlg_setup.c:109
 msgid "Input sequence check mode:"
 msgstr "รูปแบบการตรวจสอบลำดับอักขระ:"
 
-#. - "No Check" choice
-#: setup/dlg_setup.c:124
+#: setup/dlg_setup.c:126
 msgid "_No Check"
 msgstr "ไ_ม่ตรวจ"
 
-#: setup/dlg_setup.c:127
+#: setup/dlg_setup.c:129
 msgid "Let all key sequences pass through."
 msgstr "อนุญาตให้พิมพ์ได้ทุกลำดับ"
 
-#: setup/dlg_setup.c:137
+#: setup/dlg_setup.c:139
 msgid "_Basic Check"
 msgstr "_พื้นฐาน"
 
-#: setup/dlg_setup.c:140
+#: setup/dlg_setup.c:142
 msgid ""
 "Check using basic rule, just to guarantee character order to be suitable for "
 "display."
 msgstr "ตรวจสอบลำดับโดยใช้กฎพื้นฐาน เพียงเพื่อให้ลำดับอักขระเหมาะแก่การแสดงผลเท่านั้น"
 
-#: setup/dlg_setup.c:151
+#: setup/dlg_setup.c:153
 msgid "_Strict Check"
 msgstr "เ_ข้มงวด"
 
-#: setup/dlg_setup.c:154
+#: setup/dlg_setup.c:156
 msgid "Check using more strict orthographical rules."
 msgstr "ตรวจสอบลำดับโดยใช้กฎอักขรวิธีที่เข้มงวดขึ้น"
 
-#. "Correct input sequences" check box
-#: setup/dlg_setup.c:162
+#: setup/dlg_setup.c:164
 msgid "_Correct input sequences"
 msgstr "_แก้ไขลำดับการพิมพ์"
 
-#: setup/dlg_setup.c:165
+#: setup/dlg_setup.c:167
 msgid "Also try to correct wrong input sequences."
 msgstr "พยายามแก้ไขลำดับการพิมพ์ที่ผิดด้วย"

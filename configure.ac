@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([ibus-libthai], [0.1.2svn], [theppitak@gmail.com])
+AC_INIT([ibus-libthai], [0.1.3], [theppitak@gmail.com])
 AM_INIT_AUTOMAKE([dist-xz no-dist-gzip])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
