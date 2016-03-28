@@ -1,0 +1,22 @@
+Version 0.1.3 (2016-03-28)
+=============
+- Get rid of deprecated GTK+ APIs in setup program, now requiring GTK+ >= 3.16.
+- Fix compiler warnings.
+
+Version 0.1.2 (2013-10-31)
+=============
+- Fix keyboard shortcuts & Thai accelerators problems with iBus 1.5.
+- Allow typing Thai digits using numpad with CapsLock or level 3.
+
+Version 0.1.1 (2013-07-11)
+=============
+- Map keyboard scan codes directly instead of relying on XKB key symbols,
+  to avoid unexpected double-mapping on ASCII characters in Thai layouts.
+
+Version 0.1.0 (2013-02-19)
+=============
+- Initial release.
+- Keyboard layout supports: Ketmanee, Pattachote, TIS-820.2538.
+- Input sequence check/correction using libthai.
+- Setup GUI.
+
