@@ -2,11 +2,15 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([ibus-libthai], [0.1.3], [theppitak@gmail.com])
-AM_INIT_AUTOMAKE([dist-xz no-dist-gzip])
+AC_INIT([ibus-libthai],
+        m4_esyscmd([build-aux/git-version-gen]),
+        [theppitak@gmail.com])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_AUX_DIR(build-aux)
 AC_CONFIG_MACRO_DIR([m4])
+
+AM_INIT_AUTOMAKE([dist-xz no-dist-gzip])
 
 # Checks for programs.
 AC_PROG_CC
