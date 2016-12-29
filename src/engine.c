@@ -298,21 +298,6 @@ is_context_intact_key (guint keyval)
 }
 
 static tischar_t
-keyval_to_tis (ThaiKBMap thai_kb_map, guint keyval)
-{
-  if (IBUS_space <= keyval && keyval <= IBUS_asciitilde)
-    return thai_map_qwerty (thai_kb_map, keyval);
-
-  if (IBUS_Thai_kokai <= keyval && keyval <= IBUS_Thai_lekkao)
-    return (tischar_t)(keyval - IBUS_Thai_kokai) + 0xa1;
-
-  if (0x01000e01 <= keyval && keyval <= 0x01000e5f)
-    return (tischar_t)(keyval - 0x01000e01) + 0xa1;
-
-  return 0;
-}
-
-static tischar_t
 keycode_to_tis (ThaiKBMap thai_kb_map, guint keycode, gint shift_lv)
 {
   return thai_map_keycode (thai_kb_map, keycode, shift_lv);
