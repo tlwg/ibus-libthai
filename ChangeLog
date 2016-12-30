@@ -1,5 +1,22 @@
 2016-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Drop unused code
+
+	* src/engine.c (-keyval_to_tis):
+	* src/thaikb.h, src/thaikb.c (-thai_map_qwerty, -tis_qwerty_map,
+	  -pattachote_qwerty_map, ketmanee_qwerty_map):
+	  - Drop unused functions & variables.
+
+2016-12-29  Kridsada Thanabulpong  <sirn@ogsite.net>
+
+	Fix incorrect keys in Pattachote layout.
+
+	* src/thaikb.c (pattachote_keycode_map):
+	  - 0xEA (Mai Tri) -> 0xEB (Mai Chattawa)
+	  - 0xD2 (Sara Aa) -> 0xD3 (Sara Am)
+
+2016-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Use versioning based on Git snapshot.
 
 	* Makefile.am:
