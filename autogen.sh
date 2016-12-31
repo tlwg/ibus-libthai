@@ -6,5 +6,5 @@ autopoint -f
 aclocal
 autoheader
 automake --add-missing
-autoconf
+autoconf -f
 
