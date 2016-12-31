@@ -1,3 +1,9 @@
+Version 0.1.4 (2016-12-31)
+=============
+- Fix incorrect keys in Pattachote layout.
+  (Thanks Kridsada Thanabulpong for the pull request.)
+- Drop unused code.
+
 Version 0.1.3 (2016-03-28)
 =============
 - Get rid of deprecated GTK+ APIs in setup program, now requiring GTK+ >= 3.16.
