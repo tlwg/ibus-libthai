@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.68])
 AC_INIT([ibus-libthai],
-        m4_esyscmd([build-aux/git-version-gen]),
+        [m4_esyscmd([build-aux/git-version-gen])],
         [theppitak@gmail.com])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
