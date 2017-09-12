@@ -55,6 +55,7 @@ struct _IBusLibThaiEngineClass
 
 static void ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass);
 static void ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine);
+static void ibus_libthai_engine_enable (IBusEngine *engine);
 static gboolean ibus_libthai_engine_process_key_event (IBusEngine *engine,
                                                        guint       keyval,
                                                        guint       keycode,
@@ -122,6 +123,7 @@ ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass)
 {
   IBusEngineClass *engine_class = IBUS_ENGINE_CLASS (klass);
 
+  engine_class->enable = ibus_libthai_engine_enable;
   engine_class->process_key_event = ibus_libthai_engine_process_key_event;
 }
 
@@ -320,6 +322,14 @@ ibus_libthai_engine_commit_chars (IBusLibThaiEngine *libthai_engine,
   ibus_engine_commit_text (IBUS_ENGINE (libthai_engine), text);
 
   return TRUE;
+}
+
+static void
+ibus_libthai_engine_enable (IBusEngine *engine)
+{
+  /* dummy call to tell the input context that the engine will utilize
+     surrounding-text */
+  ibus_engine_get_surrounding_text (engine, NULL, NULL, NULL);
 }
 
 static gboolean

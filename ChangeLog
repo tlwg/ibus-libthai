@@ -1,3 +1,13 @@
+2017-09-12  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Get dummy surrounding text on engine enabling
+
+	* src/engine.c (+ibus_libthai_engine_enable,
+	  ibus_libthai_engine_class_init):
+	  - Issue a dummy ibus_engine_get_surrounding_text() call when
+	    engine is enabled, to tell input context that the engine will
+	    utilize surrounding text, according to IBus reference manual.
+
 2016-12-31  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	* NEWS:
