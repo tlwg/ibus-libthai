@@ -4,7 +4,7 @@
 AC_PREREQ([2.68])
 AC_INIT([ibus-libthai],
         m4_esyscmd([build-aux/git-version-gen]),
-        [theppitak@gmail.com])
+        [https://github.com/tlwg/ibus-libthai/issues])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(build-aux)
