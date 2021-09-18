@@ -1,5 +1,16 @@
 2021-09-18  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Swap keymap indexing order for managability.
+
+	* src/thaikb.c
+	  (tis_keycode_map, ketmanee_keycode_map, pattachote_keycode_map):
+	  - Index keycode before shift level.
+	  - Introduce N_LEVELS macro rather than hard coding.
+	* src/thaikb.c (thai_keycode_map, thai_map_keycode):
+	  - Reorder indexing accordingly.
+
+2021-09-18  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Replace hex codes in keymaps with characters.
 
 	* src/thaikb.c
