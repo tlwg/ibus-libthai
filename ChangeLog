@@ -1,3 +1,12 @@
+2021-09-18  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Replace hex codes in keymaps with characters.
+
+	* src/thaikb.c
+	  (tis_keycode_map, ketmanee_keycode_map, pattachote_keycode_map):
+	  - Replace hex codes for Latin characters with char literals.
+	  - Replace hex codes for Thai characters with TIS_* macros.
+
 2019-12-20  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Use GitHub issue tracker as bug report address.
