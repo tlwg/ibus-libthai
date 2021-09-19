@@ -1,3 +1,17 @@
+2021-09-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Fix some keys in Pattachote key map.
+
+	Some keys are not explicitly mentioned in Pattachote tutorials.
+	This fix is to make it more compatible with most implementations.
+
+	* src/thaikb.c (pattachote_keycode_map):
+	  - Shift + CHO CHOE = LU (previously comma)
+	  - QWERTY '\' = PHINTHU (previously LAKKHANGYAO)
+	  - Shift + SARA I = MAI HAN AKAT (previously PHINTHU)
+
+	For discussion, see: https://lemmy.ml/post/81580
+
 2021-09-18  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Swap keymap indexing order for managability.
