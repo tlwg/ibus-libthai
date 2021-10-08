@@ -1,14 +1,14 @@
 # Thai translation  of ibus-libthai.
-# Copyright (C) 2012-2016 Theppitak Karoonboonyanan <theppitak@gmail.com>
+# Copyright (C) 2012-2021 Theppitak Karoonboonyanan <theppitak@gmail.com>
 # This file is distributed under the same license as the ibus-libthai package.
-# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2012-2016.
+# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2012-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libthai 0.1.0\n"
-"Report-Msgid-Bugs-To: thep@linux.thai.net\n"
-"POT-Creation-Date: 2016-03-28 12:38+0700\n"
-"PO-Revision-Date: 2016-01-22 12:31+0700\n"
+"Report-Msgid-Bugs-To: theppitak@gmail.com\n"
+"POT-Creation-Date: 2021-10-08 15:45+0700\n"
+"PO-Revision-Date: 2021-10-08 16:02+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -58,40 +58,52 @@ msgid ""
 "Keyboard layout designed by Sarit Pattachote from a statistical research."
 msgstr "ผังแป้นพิมพ์ซึ่งออกแบบโดยคุณสฤษดิ์ ปัตตะโชติ จากงานวิจัยทางสถิติ"
 
-#: setup/dlg_setup.c:109
+#: setup/dlg_setup.c:108
+msgid "_Manoonchai"
+msgstr "มนูญ_ชัย"
+
+#: setup/dlg_setup.c:111
+msgid ""
+"Keyboard layout designed by Manassarn Manoonchai using AI optimization based "
+"on contemporary documents."
+msgstr ""
+"ผังแป้นพิมพ์ซึ่งออกแบบโดยคุณมนัสศานต์ มนูญชัย โดยใช้การออปติไมซ์ด้วย AI "
+"บนพื้นฐานของตัวอย่างเอกสารยุคปัจจุบัน"
+
+#: setup/dlg_setup.c:122
 msgid "Input sequence check mode:"
 msgstr "รูปแบบการตรวจสอบลำดับอักขระ:"
 
-#: setup/dlg_setup.c:126
+#: setup/dlg_setup.c:139
 msgid "_No Check"
 msgstr "ไ_ม่ตรวจ"
 
-#: setup/dlg_setup.c:129
+#: setup/dlg_setup.c:142
 msgid "Let all key sequences pass through."
 msgstr "อนุญาตให้พิมพ์ได้ทุกลำดับ"
 
-#: setup/dlg_setup.c:139
+#: setup/dlg_setup.c:152
 msgid "_Basic Check"
 msgstr "_พื้นฐาน"
 
-#: setup/dlg_setup.c:142
+#: setup/dlg_setup.c:155
 msgid ""
 "Check using basic rule, just to guarantee character order to be suitable for "
 "display."
 msgstr "ตรวจสอบลำดับโดยใช้กฎพื้นฐาน เพียงเพื่อให้ลำดับอักขระเหมาะแก่การแสดงผลเท่านั้น"
 
-#: setup/dlg_setup.c:153
+#: setup/dlg_setup.c:166
 msgid "_Strict Check"
 msgstr "เ_ข้มงวด"
 
-#: setup/dlg_setup.c:156
+#: setup/dlg_setup.c:169
 msgid "Check using more strict orthographical rules."
 msgstr "ตรวจสอบลำดับโดยใช้กฎอักขรวิธีที่เข้มงวดขึ้น"
 
-#: setup/dlg_setup.c:164
+#: setup/dlg_setup.c:177
 msgid "_Correct input sequences"
 msgstr "_แก้ไขลำดับการพิมพ์"
 
-#: setup/dlg_setup.c:167
+#: setup/dlg_setup.c:180
 msgid "Also try to correct wrong input sequences."
 msgstr "พยายามแก้ไขลำดับการพิมพ์ที่ผิดด้วย"
