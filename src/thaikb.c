@@ -210,17 +210,80 @@ static const unsigned char pattachote_keycode_map[N_KEYCODES][N_LEVELS] =
   { TIS_PHO_PHAN,         TIS_LO_CHULA,         TIS_LO_CHULA, },
 };
 
+static const unsigned char manoonchai_keycode_map[N_KEYCODES][N_LEVELS] =
+{
+  /* 0x00 */
+  { 0x00,                 0x00,                 0x00, },
+  { 0x00,                 0x00,                 0x00, },
+  { '1',                  '!',                  TIS_THAI_DIGIT_ONE, },
+  { '2',                  '@',                  TIS_THAI_DIGIT_TWO },
+  { '3',                  '#',                  TIS_THAI_DIGIT_THREE },
+  { '4',                  '$',                  TIS_THAI_DIGIT_FOUR },
+  { '5',                  '%',                  TIS_THAI_DIGIT_FIVE },
+  { '6',                  '^',                  TIS_THAI_DIGIT_SIX },
+  { '7',                  '&',                  TIS_THAI_DIGIT_SEVEN },
+  { '8',                  '*',                  TIS_THAI_DIGIT_EIGHT },
+  { '9',                  '(',                  TIS_THAI_DIGIT_NINE },
+  { '0',                  ')',                  TIS_THAI_DIGIT_ZERO },
+  { '-',                  '_',                  '_', },
+  { '=',                  '+',                  '+', },
+  { 0x08,                 0x08,                 0x08, },
+  { 0x09,                 0x09,                 0x09, },
+  /* 0x10 */
+  { TIS_SARA_AI_MAIMUAN,  TIS_THO_PHUTHAO,      TIS_THO_PHUTHAO, },
+  { TIS_TO_TAO,           TIS_TO_PATAK,         TIS_TO_PATAK, },
+  { TIS_HO_HIP,           TIS_SO_SO,            TIS_SO_SO, },
+  { TIS_LO_LING,          TIS_YO_YING,          TIS_YO_YING, },
+  { TIS_SO_SUA,           TIS_FO_FAN,           TIS_FO_FAN, },
+  { TIS_PO_PLA,           TIS_CHO_CHING,        TIS_CHO_CHING, },
+  { TIS_MAI_HAN_AKAT,     TIS_SARA_UE,          TIS_PHINTHU, },
+  { TIS_KO_KAI,           TIS_THO_THONG,        TIS_THO_THONG, },
+  { TIS_SARA_I,           TIS_THO_THAN,         TIS_THO_THAN, },
+  { TIS_BO_BAIMAI,        TIS_DO_CHADA,         TIS_DO_CHADA, },
+  { TIS_MAITAIKHU,        TIS_KHO_RAKHANG,      '[', },
+  { TIS_LO_CHULA,         TIS_THO_NANGMONTHO,   ']', },
+  { 0x0d,                 0x0d,                 0x0d, },
+  { 0x00,                 0x00,                 0x00, },
+  { TIS_NGO_NGU,          TIS_SO_RUSI,          TIS_SO_RUSI, },
+  { TIS_SARA_E,           TIS_THO_THUNG,        TIS_FONGMAN, },
+  /* 0x20 */
+  { TIS_RO_RUA,           TIS_SARA_AE,          TIS_KHOMUT, },
+  { TIS_NO_NU,            TIS_CHO_CHANG,        TIS_YMBOL_BAHT, },
+  { TIS_MO_MA,            TIS_PHO_PHAN,         TIS_PHO_PHAN, },
+  { TIS_O_ANG,            TIS_PHO_PHUNG,        TIS_NIKHAHIT, },
+  { TIS_SARA_AA,          TIS_SARA_AM,          TIS_LAKKHANGYAO, },
+  { TIS_MAI_EK,           TIS_KHO_KHAI,         TIS_KHO_KHUAT, },
+  { TIS_MAI_THO,          TIS_SARA_O,           TIS_SARA_O, },
+  { TIS_WO_WAEN,          TIS_PHO_SAMPHAO,      ';', },
+  { TIS_SARA_UE,          '"',                  '\'', },
+  { '`',                  '~',                  '~', },
+  { 0x00,                 0x00,                 0x00, },
+  { TIS_PAIYANNOI,        TIS_CHO_CHOE,         '\\', },
+  { TIS_SARA_U,           TIS_RU,               TIS_LU, },
+  { TIS_SARA_AI_MAIMALAI, TIS_FO_FA,            TIS_FO_FA, },
+  { TIS_THO_THAHAN,       TIS_MAIYAMOK,         TIS_ANGKHANKHU, },
+  { TIS_YO_YAK,           TIS_NO_NEN,           TIS_NO_NEN, },
+  /* 0x30 */
+  { TIS_CHO_CHAN,         TIS_MAI_TRI,          TIS_MAI_TRI, },
+  { TIS_KHO_KHWAI,        TIS_MAI_CHATTAWA,     TIS_KHO_KHON, },
+  { TIS_SARA_II,          TIS_THANTHAKHAT,      TIS_YAMAKKAN, },
+  { TIS_DO_DEK,           TIS_SO_SALA,          ',', },
+  { TIS_SARA_A,           TIS_HO_NOKHUK,        '.', },
+  { TIS_SARA_UU,          '?',                  '/', },
+};
+
 static const unsigned char (* const thai_keycode_map[])[N_LEVELS] =
 {
   ketmanee_keycode_map,
   pattachote_keycode_map,
-  tis_keycode_map
+  tis_keycode_map,
+  manoonchai_keycode_map,
 };
 
 unsigned char
 thai_map_keycode (ThaiKBMap map, int keycode, int shift_lv)
 {
-  if (map > THAI_KB_TIS820_2538 || shift_lv >= N_LEVELS
+  if (map > THAI_KB_MANOONCHAI || shift_lv >= N_LEVELS
       || keycode >= N_KEYCODES)
     return 0;
 

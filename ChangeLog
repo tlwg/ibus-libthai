@@ -1,5 +1,20 @@
 2021-09-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add Manoonchai keymap.
+
+	Some keys are currently omitted, such as '×' and '÷', until
+	we support non-TIS-620 chars.
+
+	* src/thaikb.h, src/thaikb.c (+THAI_KB_MANOONCHAI,
+	  +manoonchai_keycode_map, thai_keycode_map, thai_map_keycode):
+	  - Add Manoonchai keycode table.
+	* src/dlg_setup.c (ibus_libthai_setup_dialog_new,
+	  ibus_libthai_setup_set_values, ibus_libthai_setup_get_values):
+	  - Add "Manoonchai" keyboard layout radio button,
+	    with get/set functions.
+
+2021-09-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Fix some keys in Pattachote key map.
 
 	Some keys are not explicitly mentioned in Pattachote tutorials.

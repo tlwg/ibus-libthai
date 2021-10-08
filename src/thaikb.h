@@ -26,7 +26,8 @@ enum _ThaiKBMap
 {
   THAI_KB_KETMANEE,
   THAI_KB_PATTACHOTE,
-  THAI_KB_TIS820_2538
+  THAI_KB_TIS820_2538,
+  THAI_KB_MANOONCHAI,
 };
 
 unsigned char thai_map_keycode (ThaiKBMap map, int keycode, int shift_lv);

@@ -103,6 +103,19 @@ ibus_libthai_setup_dialog_new ()
 
   g_object_set_data (G_OBJECT (main_dlg), "pattachote_radio", widget);
 
+  /* - Manoonchai keyboard layout */
+  widget = gtk_radio_button_new_with_mnemonic_from_widget (last_radio,
+                                                           _("_Manoonchai"));
+  gtk_widget_set_tooltip_text (
+      widget,
+      _("Keyboard layout designed by Manassarn Manoonchai "
+      "using AI optimization based on contemporary documents.")
+  );
+  gtk_widget_show (widget);
+  gtk_box_pack_start (GTK_BOX (vbox), widget, TRUE, FALSE, 0);
+
+  g_object_set_data (G_OBJECT (main_dlg), "manoonchai_radio", widget);
+
   /* Input Sequence Check section label */
   widget = gtk_label_new (NULL);
   markup = g_markup_printf_escaped ("<b>%s</b>",
@@ -184,6 +197,9 @@ ibus_libthai_setup_set_values (const GtkDialog *dlg,
   /* Set current keyboard layout value */
   switch (opt->thai_kb_map)
     {
+      case THAI_KB_MANOONCHAI:
+        widget = g_object_get_data (G_OBJECT (dlg), "manoonchai_radio");
+        break;
       case THAI_KB_PATTACHOTE:
         widget = g_object_get_data (G_OBJECT (dlg), "pattachote_radio");
         break;
@@ -225,6 +241,12 @@ ibus_libthai_setup_get_values (const GtkDialog *dlg,
   GtkWidget *widget;
 
   /* Check for current keyboard layout value */
+  widget = g_object_get_data (G_OBJECT (dlg), "manoonchai_radio");
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+    {
+      opt->thai_kb_map = THAI_KB_MANOONCHAI;
+      goto kb_map_done;
+    }
   widget = g_object_get_data (G_OBJECT (dlg), "pattachote_radio");
   if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     {
