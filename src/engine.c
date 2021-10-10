@@ -22,6 +22,7 @@
 #endif
 
 #include "engine.h"
+#include "engine_const.h"
 #include "ibus_config.h"
 #include "thaikb.h"
 #include <thai/thcell.h>
@@ -128,6 +129,39 @@ ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass)
 }
 
 static void
+config_value_changed_cb (IBusConfig *config,
+                         char       *section,
+                         char       *name,
+                         GVariant   *value,
+                         gpointer    user_data)
+{
+
+  if (strcmp (section, CONFIG_SECTION) == 0)
+    {
+      IBusLibThaiEngine *libthai_engine = (IBusLibThaiEngine *) user_data;
+
+      if (strcmp (name, CONFIG_KB_LAYOUT) == 0)
+        {
+          gint32  v;
+          g_variant_get (value, "i", &v);
+          libthai_engine->kb_map = v;
+        }
+      else if (strcmp (name, CONFIG_ISC_MODE) == 0)
+        {
+          gint32  v;
+          g_variant_get (value, "i", &v);
+          libthai_engine->isc_mode = v;
+        }
+      else if (strcmp (name, CONFIG_DO_CORRECT) == 0)
+        {
+          gboolean  b;
+          g_variant_get (value, "b", &b);
+          libthai_engine->do_correct = b;
+        }
+    }
+}
+
+static void
 ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
 {
   IBusLibThaiSetupOptions opt;
@@ -139,6 +173,11 @@ ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
   libthai_engine->kb_map = opt.thai_kb_map;
   libthai_engine->isc_mode = opt.isc_mode;
   libthai_engine->do_correct = opt.do_correct;
+
+  /* Watch config changes */
+  ibus_config_watch (ibus_config, CONFIG_SECTION, NULL);
+  g_signal_connect(ibus_config, "value-changed",
+                   (GCallback) config_value_changed_cb, libthai_engine);
 }
 
 static gboolean

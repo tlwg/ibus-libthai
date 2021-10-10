@@ -1,3 +1,16 @@
+2021-10-10  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Watch config changes instead of reloading ibus.
+
+	* src/engine.c (+config_value_changed_cb, ibus_libthai_engine_init):
+	  - Watch config and trap "value-changed" signal from IBusConfig
+	    with a callback that reads the changed value.
+	* setup/setup.c (entries, main):
+	  - Drop call to force_engine_to_reload_config().
+	  - Drop now-unused '--engine' and '-x' option.
+	* src/ibus_config.h, src/ibus_config.c (-force_engine_to_reload_config):
+	  - Drop now-unused function.
+
 2021-09-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add Manoonchai keymap.

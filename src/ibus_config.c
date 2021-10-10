@@ -88,13 +88,6 @@ ibus_libthai_write_config (IBusConfig *config,
   ibus_config_set_value (config, CONFIG_SECTION, CONFIG_DO_CORRECT, val);
 }
 
-gboolean
-force_engine_to_reload_config ()
-{
-  return system ("ibus-daemon -xrd") == 0;
-}
-
-
 /*
 vi:ts=2:nowrap:ai:expandtab
 */

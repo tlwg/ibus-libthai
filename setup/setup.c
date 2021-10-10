@@ -36,8 +36,6 @@ static gboolean opt_version = FALSE;
 
 static const GOptionEntry entries[] =
 {
-  { "engine", 'x', 0, G_OPTION_ARG_NONE, &opt_engine,
-    "indicate setup run from ibus-engine-libthai", NULL },
   { "version", 'V', 0, G_OPTION_ARG_NONE, &opt_version,
     "print ibus-libthai version", NULL },
   { NULL },
@@ -104,10 +102,6 @@ main (int argc, char **argv)
     {
       ibus_libthai_setup_get_values (GTK_DIALOG (main_dlg), &opt);
       ibus_libthai_write_config (config, &opt);
-      if (!opt_engine)
-        {
-          force_engine_to_reload_config ();
-        }
     }
 
   return 0;

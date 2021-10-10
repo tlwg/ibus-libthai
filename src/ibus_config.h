@@ -37,7 +37,6 @@ void ibus_libthai_read_config (IBusConfig *config,
                                IBusLibThaiSetupOptions *opt);
 void ibus_libthai_write_config (IBusConfig *config,
                                 const IBusLibThaiSetupOptions *opt);
-gboolean force_engine_to_reload_config ();
 
 #endif /* __IBUS_CONFIG_H__ */
 
