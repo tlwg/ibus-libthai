@@ -1,4 +1,4 @@
-SUBDIRS = src setup icons po
+SUBDIRS = src setup data po
 
 EXTRA_DIST =	\
 	build-aux/git-version-gen	\

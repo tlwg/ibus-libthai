@@ -1,3 +1,12 @@
+2021-10-11  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add data subdir and move icons under it.
+
+	* configure.ac, Makefile.am, +data/, +data/Makefile.am:
+	  - Add data subdir.
+	* configure.ac, data/Makefile.am, icons/* -> data/icons/*:
+	  - Move icons subdir to be under data.
+
 2021-10-10  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Watch config changes instead of reloading ibus.

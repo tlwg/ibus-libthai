@@ -44,6 +44,7 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/libthai.xml.in
                  setup/Makefile
-                 icons/Makefile
+                 data/Makefile
+                 data/icons/Makefile
                  po/Makefile.in])
 AC_OUTPUT
