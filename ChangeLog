@@ -51,7 +51,7 @@
 	* src/ibus_config.h, src/ibus_config.c (-force_engine_to_reload_config):
 	  - Drop now-unused function.
 
-2021-09-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+2021-10-08  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add Manoonchai keymap.
 
