@@ -27,6 +27,7 @@
 #include <ibus.h>
 #include <stdlib.h>
 #include "ibus_config.h"
+#include "engine_const.h"
 #include "dlg_setup.h"
 
 #define _(string) gettext(string)
@@ -54,7 +55,7 @@ main (int argc, char **argv)
   GOptionContext *context;
 
   GtkWidget  *main_dlg;
-  IBusConfig *config;
+  GSettings  *settings;
   IBusBus    *bus;
   IBusLibThaiSetupOptions opt;
   int         ret;
@@ -92,16 +93,16 @@ main (int argc, char **argv)
   bus = ibus_bus_new ();
   g_signal_connect (bus, "disconnected",
                     G_CALLBACK (ibus_libthai_disconnected_cb), NULL);
-  config = ibus_bus_get_config (bus);
+  settings = g_settings_new (CONFIG_SCHEMA);
 
-  ibus_libthai_read_config (config, &opt);
+  ibus_libthai_read_config (settings, &opt);
   ibus_libthai_setup_set_values (GTK_DIALOG (main_dlg), &opt);
 
   ret = gtk_dialog_run (GTK_DIALOG (main_dlg));
   if (GTK_RESPONSE_OK == ret)
     {
       ibus_libthai_setup_get_values (GTK_DIALOG (main_dlg), &opt);
-      ibus_libthai_write_config (config, &opt);
+      ibus_libthai_write_config (settings, &opt);
     }
 
   return 0;

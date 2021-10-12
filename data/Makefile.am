@@ -1,1 +1,1 @@
-SUBDIRS = icons
+SUBDIRS = dconf icons

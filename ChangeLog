@@ -1,3 +1,34 @@
+2021-10-12  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Switch from IBusConfig to GSettings.
+
+	IBusConfig failed somhow to save configs, and even IBus core
+	itself has switched to GSettings.
+
+	* configure.ac, data/Makefile.am, +data/dconf/,
+	  +data/dconf/Makefile.am,
+	  +data/dconf/org.freedesktop.ibus.libthai.gschema.xml:
+	  - Add GSettings schema.
+	* src/engine_const.h:
+	  - Replace CONFIG_SECTION macro with CONFIG_SCHEMA.
+	  - Redefine CONFIG_* keys according to GSettings convention.
+	* src/ibus_config.h, src/ibus_config.c:
+	  - Rewrite ibus_libthai_read_config() and ibus_libthai_write_config()
+	    to use GSettings.
+	  - Drop set_default_config(), as we always read full config anyway.
+	* src/engine.h, src/engine.c:
+	  - Replace ibus_config global var with ibus_libthai_settings.
+	  - Rewrite ibus_libthai_init() to use GSettings. With this,
+	    the IBusBus arg is dropped.
+	  - Update ibus_libthai_read_config() call with the GSettings version.
+	  - [ibus_libthai_engine_init, config_value_changed_cb]
+	    Replace IBusConfig "value-changed" signal handler with that for
+	    GSettings "changed" signal.
+	* src/main.c (init):
+	  - Update ibus_libthai_init() call with the arg-less version.
+	* setup/setup.c (main):
+	  - Replace IBusConfig uses with GSettings.
+
 2021-10-11  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add data subdir and move icons under it.

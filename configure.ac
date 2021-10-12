@@ -40,11 +40,14 @@ PKG_CHECK_MODULES(GLIB, [glib-2.0])
 PKG_CHECK_MODULES(GTK, [gtk+-3.0 >= 3.16])
 PKG_CHECK_MODULES(LIBTHAI, [libthai >= 0.1.19])
 
+GLIB_GSETTINGS
+
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/libthai.xml.in
                  setup/Makefile
                  data/Makefile
+                 data/dconf/Makefile
                  data/icons/Makefile
                  po/Makefile.in])
 AC_OUTPUT

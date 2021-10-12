@@ -28,6 +28,7 @@
 #include <thai/thcell.h>
 #include <thai/thinp.h>
 #include <glib.h>
+#include <gio/gio.h>
 #include <string.h>
 
 typedef guchar tischar_t;
@@ -81,12 +82,12 @@ static gboolean
 is_client_support_surrounding (IBusEngine *engine);
 
 /* Global variables */
-static IBusConfig *ibus_config = NULL;
+static GSettings *ibus_libthai_settings = NULL;
 
 void
-ibus_libthai_init (IBusBus *bus)
+ibus_libthai_init ()
 {
-  ibus_config = ibus_bus_get_config (bus);
+  ibus_libthai_settings = g_settings_new (CONFIG_SCHEMA);
 }
 
 
@@ -129,35 +130,26 @@ ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass)
 }
 
 static void
-config_value_changed_cb (IBusConfig *config,
-                         char       *section,
-                         char       *name,
-                         GVariant   *value,
+config_value_changed_cb (GSettings  *settings,
+                         char       *key,
                          gpointer    user_data)
 {
+  IBusLibThaiEngine *libthai_engine = (IBusLibThaiEngine *) user_data;
 
-  if (strcmp (section, CONFIG_SECTION) == 0)
+  if (strcmp (key, CONFIG_KB_LAYOUT) == 0)
     {
-      IBusLibThaiEngine *libthai_engine = (IBusLibThaiEngine *) user_data;
-
-      if (strcmp (name, CONFIG_KB_LAYOUT) == 0)
-        {
-          gint32  v;
-          g_variant_get (value, "i", &v);
-          libthai_engine->kb_map = v;
-        }
-      else if (strcmp (name, CONFIG_ISC_MODE) == 0)
-        {
-          gint32  v;
-          g_variant_get (value, "i", &v);
-          libthai_engine->isc_mode = v;
-        }
-      else if (strcmp (name, CONFIG_DO_CORRECT) == 0)
-        {
-          gboolean  b;
-          g_variant_get (value, "b", &b);
-          libthai_engine->do_correct = b;
-        }
+      libthai_engine->kb_map
+        = g_settings_get_enum (settings, CONFIG_KB_LAYOUT);
+    }
+  else if (strcmp (key, CONFIG_ISC_MODE) == 0)
+    {
+      libthai_engine->isc_mode
+        = g_settings_get_enum (settings, CONFIG_ISC_MODE);
+    }
+  else if (strcmp (key, CONFIG_DO_CORRECT) == 0)
+    {
+      libthai_engine->do_correct
+        = g_settings_get_boolean (settings, CONFIG_DO_CORRECT);
     }
 }
 
@@ -169,14 +161,13 @@ ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
   ibus_libthai_engine_forget_prev_chars (libthai_engine);
 
   /* Read config */
-  ibus_libthai_read_config (ibus_config, &opt);
+  ibus_libthai_read_config (ibus_libthai_settings, &opt);
   libthai_engine->kb_map = opt.thai_kb_map;
   libthai_engine->isc_mode = opt.isc_mode;
   libthai_engine->do_correct = opt.do_correct;
 
   /* Watch config changes */
-  ibus_config_watch (ibus_config, CONFIG_SECTION, NULL);
-  g_signal_connect(ibus_config, "value-changed",
+  g_signal_connect(ibus_libthai_settings, "changed",
                    (GCallback) config_value_changed_cb, libthai_engine);
 }
 

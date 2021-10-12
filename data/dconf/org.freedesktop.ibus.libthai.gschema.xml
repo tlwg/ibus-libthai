@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="org.freedesktop.ibus.libthai.kblayout">
+    <value nick="Ketmanee" value="0"/>
+    <value nick="Pattachote" value="1"/>
+    <value nick="TIS 820-2538" value="2"/>
+    <value nick="Manoonchai" value="3"/>
+  </enum>
+  <enum id="org.freedesktop.ibus.libthai.iscmode">
+    <value nick="Passthrough" value="0"/>
+    <value nick="Basic" value="1"/>
+    <value nick="Strict" value="2"/>
+  </enum>
+  <schema id="org.freedesktop.ibus.libthai" path="/org/freedesktop/ibus/engine/libthai/">
+    <key name="kb-layout" enum="org.freedesktop.ibus.libthai.kblayout">
+      <default>'Ketmanee'</default>
+      <summary>Keyboard layout</summary>
+      <description>
+        Thai keyboard layout to use.
+      </description>
+    </key>
+    <key name="isc-mode" enum="org.freedesktop.ibus.libthai.iscmode">
+      <default>'Basic'</default>
+      <summary>Input sequence check mode</summary>
+      <description>
+        Input sequence check mode:
+        0 = Passthrough, 1 = Basic check, 2 = Strict check
+      </description>
+    </key>
+    <key name="do-correct" type="b">
+      <default>true</default>
+      <summary>Do correction</summary>
+      <description>
+        If enabled, attempt to correct invalid input sequences will be done.
+        if disabled, all invalid input sequences will be rejected.
+      </description>
+    </key>
+  </schema>
+</schemalist>

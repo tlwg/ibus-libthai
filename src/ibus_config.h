@@ -22,7 +22,7 @@
 
 #include <thai/thinp.h>
 #include "thaikb.h"
-#include <ibus.h>
+#include <gio/gio.h>
 
 typedef struct _IBusLibThaiSetupOptions IBusLibThaiSetupOptions;
 
@@ -33,9 +33,9 @@ struct _IBusLibThaiSetupOptions
   gboolean   do_correct;
 };
 
-void ibus_libthai_read_config (IBusConfig *config,
+void ibus_libthai_read_config (GSettings *settings,
                                IBusLibThaiSetupOptions *opt);
-void ibus_libthai_write_config (IBusConfig *config,
+void ibus_libthai_write_config (GSettings *settings,
                                 const IBusLibThaiSetupOptions *opt);
 
 #endif /* __IBUS_CONFIG_H__ */

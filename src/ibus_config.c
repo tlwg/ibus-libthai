@@ -22,70 +22,22 @@
 
 #include <stdlib.h>
 
-static void
-set_default_config (IBusLibThaiSetupOptions *opt)
-{
-  opt->thai_kb_map = THAI_KB_KETMANEE;
-  opt->isc_mode = ISC_BASICCHECK;
-  opt->do_correct = TRUE;
-}
-
 void
-ibus_libthai_read_config (IBusConfig *config,
+ibus_libthai_read_config (GSettings *settings,
                           IBusLibThaiSetupOptions *opt)
 {
-  GVariant *val;
-
-  set_default_config (opt);
-
-  /* Get keyboard layout */
-  val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT);
-  if (val)
-    {
-      gint32    v;
-      g_variant_get (val, "i", &v);
-      opt->thai_kb_map = v;
-      g_variant_unref (val);
-    }
-
-  /* Get input sequence check mode */
-  val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_ISC_MODE);
-  if (val)
-    {
-      gint32    v;
-      g_variant_get (val, "i", &v);
-      opt->isc_mode = v;
-      g_variant_unref (val);
-    }
-
-  /* Get input sequence correction flag */
-  val = ibus_config_get_value (config, CONFIG_SECTION, CONFIG_DO_CORRECT);
-  if (val)
-    {
-      gboolean  b;
-      g_variant_get (val, "b", &b);
-      opt->do_correct = b;
-      g_variant_unref (val);
-    }
+  opt->thai_kb_map = g_settings_get_enum (settings, CONFIG_KB_LAYOUT);
+  opt->isc_mode = g_settings_get_enum (settings, CONFIG_ISC_MODE);
+  opt->do_correct = g_settings_get_boolean (settings, CONFIG_DO_CORRECT);
 }
 
 void
-ibus_libthai_write_config (IBusConfig *config,
+ibus_libthai_write_config (GSettings *settings,
                            const IBusLibThaiSetupOptions *opt)
 {
-  GVariant *val;
-
-  /* Set keyboard layout */
-  val = g_variant_new_int32 (opt->thai_kb_map);
-  ibus_config_set_value (config, CONFIG_SECTION, CONFIG_KB_LAYOUT, val);
-
-  /* Set input sequence check mode */
-  val = g_variant_new_int32 (opt->isc_mode);
-  ibus_config_set_value (config, CONFIG_SECTION, CONFIG_ISC_MODE, val);
-
-  /* Set input sequence correction flag */
-  val = g_variant_new_boolean (opt->do_correct);
-  ibus_config_set_value (config, CONFIG_SECTION, CONFIG_DO_CORRECT, val);
+  g_settings_set_enum (settings, CONFIG_KB_LAYOUT, opt->thai_kb_map);
+  g_settings_set_enum (settings, CONFIG_ISC_MODE, opt->isc_mode);
+  g_settings_set_boolean (settings, CONFIG_DO_CORRECT, opt->do_correct);
 }
 
 /*
