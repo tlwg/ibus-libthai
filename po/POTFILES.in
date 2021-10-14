@@ -1,4 +1,7 @@
 # List of source files which contain translatable strings.
-src/engine.c
-src/main.c
+
+# setup dialog
 setup/dlg_setup.c
+
+# GSettings schema
+data/dconf/org.freedesktop.ibus.libthai.gschema.xml

@@ -11,20 +11,26 @@
     <value nick="Basic" value="1"/>
     <value nick="Strict" value="2"/>
   </enum>
-  <schema id="org.freedesktop.ibus.libthai" path="/org/freedesktop/ibus/engine/libthai/">
+  <schema id="org.freedesktop.ibus.libthai" path="/org/freedesktop/ibus/engine/libthai/" gettext-domain="ibus-libthai">
     <key name="kb-layout" enum="org.freedesktop.ibus.libthai.kblayout">
       <default>'Ketmanee'</default>
       <summary>Keyboard layout</summary>
       <description>
         Thai keyboard layout to use.
+        'Ketmanee' is the traditional layout on Thai typewriters and is the most popular one in the market.
+        'Pattachote' is a typewriter layout designed by Sarit Pattachote from a statistical research.
+        'TIS 820-2538' is the national standard layout derived from Ketmanee, with capability to type some additional Thai characters.
+        'Manoonchai' is a keyboard layout designed by Manassarn Manoonchai using AI optimization based on contemporary document samples.
       </description>
     </key>
     <key name="isc-mode" enum="org.freedesktop.ibus.libthai.iscmode">
       <default>'Basic'</default>
       <summary>Input sequence check mode</summary>
       <description>
-        Input sequence check mode:
-        0 = Passthrough, 1 = Basic check, 2 = Strict check
+        Strictness of input sequence checking.
+        'Passthrough' does not check anything.
+        'Basic' checks input just to ensure proper placement of combining characters.
+        'Strict' is more picky on Thai orthography correctness.
       </description>
     </key>
     <key name="do-correct" type="b">

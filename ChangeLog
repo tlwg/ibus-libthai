@@ -1,3 +1,15 @@
+2021-10-14  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Revise descriptions in GSettings schema.
+
+	* data/dconf/org.freedesktop.ibus.libthai.gschema.xml:
+	  - Add details on Thai keyboard layouts and ISC modes.
+	  - Add 'gettext-domain' attribute for translation.
+	* po/POTFILES.in:
+	  - Drop main engine files which do not contain messages.
+	  - Classify sources with comments.
+	  - Add gschema file.
+
 2021-10-12  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Switch from IBusConfig to GSettings.
