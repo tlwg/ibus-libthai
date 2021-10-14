@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libthai 0.1.0\n"
 "Report-Msgid-Bugs-To: theppitak@gmail.com\n"
-"POT-Creation-Date: 2021-10-08 15:45+0700\n"
-"PO-Revision-Date: 2021-10-10 12:29+0700\n"
+"POT-Creation-Date: 2021-10-14 10:26+0700\n"
+"PO-Revision-Date: 2021-10-14 10:27+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -68,7 +68,7 @@ msgid ""
 "on contemporary documents."
 msgstr ""
 "ผังแป้นพิมพ์ซึ่งออกแบบโดยคุณมนัสศานติ์ มนูญชัย โดยใช้การออปติไมซ์ด้วย AI "
-"บนพื้นฐานของตัวอย่างเอกสารยุคปัจจุบัน"
+"บนพื้นฐานของตัวอย่างเอกสารร่วมสมัย"
 
 #: setup/dlg_setup.c:122
 msgid "Input sequence check mode:"
@@ -107,3 +107,49 @@ msgstr "_แก้ไขลำดับการพิมพ์"
 #: setup/dlg_setup.c:180
 msgid "Also try to correct wrong input sequences."
 msgstr "พยายามแก้ไขลำดับการพิมพ์ที่ผิดด้วย"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:17
+msgid "Keyboard layout"
+msgstr "ผังแป้นพิมพ์"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:18
+msgid ""
+"Thai keyboard layout to use. 'Ketmanee' is the traditional layout on Thai "
+"typewriters and is the most popular one in the market. 'Pattachote' is a "
+"typewriter layout designed by Sarit Pattachote from a statistical research. "
+"'TIS 820-2538' is the national standard layout derived from Ketmanee, with "
+"capability to type some additional Thai characters. 'Manoonchai' is a "
+"keyboard layout designed by Manassarn Manoonchai using AI optimization based "
+"on contemporary document samples."
+msgstr ""
+"ผังแป้นพิมพ์ไทยที่จะใช้: 'Ketmanee' (เกษมณี) คือผังแป้นพิมพ์ดั้งเดิมของพิมพ์ดีดไทย "
+"และเป็นผังที่แพร่หลายที่สุดในตลาด 'Pattachote' (ปัตตะโชติ) คือผังแป้นพิมพ์ซึ่งออกแบบโดยคุณสฤษดิ์ "
+"ปัตตะโชติ จากงานวิจัยทางสถิติ 'TIS 820-2538' (มอก. 820-2538) "
+"คือผังแป้นพิมพ์มาตรฐานผลิตภัณฑ์อุตสาหกรรมซึ่งปรับเปลี่ยนจากเกษมณี "
+"โดยสามารถพิมพ์อักขระไทยได้เพิ่มเติม 'Manoonchai' (มนูญชัย) "
+"คือผังแป้นพิมพ์ซึ่งออกแบบโดยคุณมนัสศานติ์ มนูญชัย โดยใช้การออปติไมซ์ด้วย AI "
+"บนพื้นฐานของตัวอย่างเอกสารร่วมสมัย"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:28
+msgid "Input sequence check mode"
+msgstr "รูปแบบการตรวจสอบลำดับอักขระ"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:29
+msgid ""
+"Strictness of input sequence checking. 'Passthrough' does not check "
+"anything. 'Basic' checks input just to ensure proper placement of combining "
+"characters. 'Strict' is more picky on Thai orthography correctness."
+msgstr ""
+"ความเข้มงวดของการตรวจสอบลำดับอักขระ: 'Passthrough' จะไม่ตรวจสอบใดๆ 'Basic' "
+"ตรวจสอบลำดับเพียงเพื่อให้สามารถซ้อนอักขระบนล่างได้อย่างเหมาะสมเท่านั้น 'Strict' "
+"จะเข้มงวดมากขึ้นเรื่องความถูกต้องของอักขรวิธีภาษาไทย"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:38
+msgid "Do correction"
+msgstr "แก้ไขลำดับการพิมพ์"
+
+#: data/dconf/org.freedesktop.ibus.libthai.gschema.xml:39
+msgid ""
+"If enabled, attempt to correct invalid input sequences will be done. if "
+"disabled, all invalid input sequences will be rejected."
+msgstr "ถ้าเปิดใช้ จะพยายามแก้ไขลำดับการพิมพ์ที่ผิดให้ด้วย ถ้าปิด ก็จะปฏิเสธลำดับการพิมพ์ที่ผิดทั้งหมด"
