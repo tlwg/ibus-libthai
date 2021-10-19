@@ -1,3 +1,31 @@
+2021-10-19  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Modify rare keys of Pattachote keymap.
+
+	As discussed with @sirn@mastodon.in.th, some keys in
+	Pattachote are rarely used and unsettled among platforms.
+	We can make use of them for extra Thai characters.
+
+	https://lemmy.ml/post/81580
+
+	- QWERTY grave: MacOS=[฿,]; Windows=[_,฿]
+	  We choose Windows layout, but replace the rarely used '_' with 'ๅ'.
+	- QWERTY digit one: MacOS=[,]; Windows=[=,+]
+	  Just like how [ฃ,ฅ] is placed upon QWERTY [\,|] in Ketmanee,
+	  we choose to place it here for Pattachote.
+	- QWERTY B: MacOS=Windows=[SARA I, MAI HAN AKAT]
+	  MAI HAN AKAT here duplicates the QWERTY g key and is rarely used.
+	  It is just a legacy from typewriter key MAI HAN AKAT + MAI THO.
+	  We choose to place YAMAKKAN here instead.
+
+	* src/thaikb.c (pattachote_keycode_map):
+	  - QWERTY grave: [_,฿] -> [ๅ,฿]
+	  - QWERTY digit one: [=,+] -> [ฃ,ฅ]
+	  - QWERTY B: [SARA I, MAI HAN AKAT] -> [SARA I, YAMAKKAN]
+
+	Thanks Kridsada Thanabulpong (@sirn@mastodon.in.th) for the
+	informative inputs.
+
 2021-10-14  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Revise descriptions in GSettings schema.

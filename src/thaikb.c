@@ -153,7 +153,7 @@ static const unsigned char pattachote_keycode_map[N_KEYCODES][N_LEVELS] =
   /* 0x00 */
   { 0x00,                 0x00,                 0x00, },
   { 0x00,                 0x00,                 0x00, },
-  { '=',                  '+',                  '+', },
+  { TIS_KHO_KHUAT,        TIS_KHO_KHON,         TIS_KHO_KHON, },
   { TIS_THAI_DIGIT_TWO,   '"',                  '"', },
   { TIS_THAI_DIGIT_THREE, '/',                  '/', },
   { TIS_THAI_DIGIT_FOUR,  ',',                  ',', },
@@ -194,7 +194,7 @@ static const unsigned char pattachote_keycode_map[N_KEYCODES][N_LEVELS] =
   { TIS_SARA_E,           TIS_SARA_O,           TIS_SARA_O, },
   { TIS_SARA_AI_MAIMALAI, TIS_KHO_RAKHANG,      TIS_KHO_RAKHANG, },
   { TIS_KHO_KHAI,         TIS_THO_NANGMONTHO,   TIS_THO_NANGMONTHO, },
-  { '_',                  TIS_YMBOL_BAHT,       TIS_YMBOL_BAHT, },
+  { TIS_LAKKHANGYAO,      TIS_YMBOL_BAHT,       TIS_YMBOL_BAHT, },
   { 0x00,                 0x00,                 0x00, },
   { TIS_PHINTHU,          TIS_NIKHAHIT,         TIS_NIKHAHIT, },
   { TIS_BO_BAIMAI,        TIS_DO_CHADA,         TIS_DO_CHADA, },
@@ -202,7 +202,7 @@ static const unsigned char pattachote_keycode_map[N_KEYCODES][N_LEVELS] =
   { TIS_LO_LING,          TIS_THO_THAN,         TIS_THO_THAN, },
   { TIS_HO_HIP,           TIS_PHO_SAMPHAO,      TIS_PHO_SAMPHAO, },
   /* 0x30 */
-  { TIS_SARA_I,           TIS_MAI_HAN_AKAT,     TIS_MAI_HAN_AKAT, },
+  { TIS_SARA_I,           TIS_YAMAKKAN,         TIS_YAMAKKAN, },
   { TIS_KHO_KHWAI,        TIS_SO_SALA,          TIS_SO_SALA, },
   { TIS_SO_SUA,           TIS_HO_NOKHUK,        TIS_HO_NOKHUK, },
   { TIS_SARA_A,           TIS_FO_FAN,           TIS_FO_FAN, },
