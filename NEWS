@@ -1,3 +1,11 @@
+Version 0.1.5 (2021-10-20)
+=============
+- Restructure keycode maps to ease modifications.
+- Add Manoonchai keyboard layout.
+- Switch configuration system from the broken IBusConfig to GSettings.
+- Modify Pattachote layout for extra Thai characters.
+  (Thanks Kridsada Thanabulpong (@sirn) for the informative inputs.)
+
 Version 0.1.4 (2016-12-31)
 =============
 - Fix incorrect keys in Pattachote layout.
