@@ -130,30 +130,6 @@ ibus_libthai_engine_class_init (IBusLibThaiEngineClass *klass)
 }
 
 static void
-config_value_changed_cb (GSettings  *settings,
-                         char       *key,
-                         gpointer    user_data)
-{
-  IBusLibThaiEngine *libthai_engine = (IBusLibThaiEngine *) user_data;
-
-  if (strcmp (key, CONFIG_KB_LAYOUT) == 0)
-    {
-      libthai_engine->kb_map
-        = g_settings_get_enum (settings, CONFIG_KB_LAYOUT);
-    }
-  else if (strcmp (key, CONFIG_ISC_MODE) == 0)
-    {
-      libthai_engine->isc_mode
-        = g_settings_get_enum (settings, CONFIG_ISC_MODE);
-    }
-  else if (strcmp (key, CONFIG_DO_CORRECT) == 0)
-    {
-      libthai_engine->do_correct
-        = g_settings_get_boolean (settings, CONFIG_DO_CORRECT);
-    }
-}
-
-static void
 ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
 {
   IBusLibThaiSetupOptions opt;
@@ -165,10 +141,6 @@ ibus_libthai_engine_init (IBusLibThaiEngine *libthai_engine)
   libthai_engine->kb_map = opt.thai_kb_map;
   libthai_engine->isc_mode = opt.isc_mode;
   libthai_engine->do_correct = opt.do_correct;
-
-  /* Watch config changes */
-  g_signal_connect(ibus_libthai_settings, "changed",
-                   (GCallback) config_value_changed_cb, libthai_engine);
 }
 
 static gboolean

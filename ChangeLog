@@ -1,5 +1,16 @@
 2021-10-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Remove watch on GSettings key.
+
+	IBus appears to call engine init every time it gets focus,
+	which already makes all config changes immediately effective.
+
+	* src/engine.c:
+	  - [libthai_engine_init] Remove "changed" GSettings signal handling.
+	  - [-config_value_changed_cb] Remove the now-unused callback.
+
+2021-10-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Fix failure to set GSettings keys next to the first.
 
 	ibus_libthai_write_config() failed to set all keys but the first.
