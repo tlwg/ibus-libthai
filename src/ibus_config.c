@@ -35,9 +35,13 @@ void
 ibus_libthai_write_config (GSettings *settings,
                            const IBusLibThaiSetupOptions *opt)
 {
+  g_settings_delay (settings);
+
   g_settings_set_enum (settings, CONFIG_KB_LAYOUT, opt->thai_kb_map);
   g_settings_set_enum (settings, CONFIG_ISC_MODE, opt->isc_mode);
   g_settings_set_boolean (settings, CONFIG_DO_CORRECT, opt->do_correct);
+
+  g_settings_apply (settings);
 }
 
 /*

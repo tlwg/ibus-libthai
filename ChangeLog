@@ -1,3 +1,12 @@
+2021-10-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Fix failure to set GSettings keys next to the first.
+
+	ibus_libthai_write_config() failed to set all keys but the first.
+
+	* src/ibus_config.c (ibus_libthai_write_config):
+	  - Delay and apply key changes in batch.
+
 2021-10-20  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	* NEWS:
