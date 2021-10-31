@@ -101,8 +101,9 @@ main (int argc, char **argv)
   ret = gtk_dialog_run (GTK_DIALOG (main_dlg));
   if (GTK_RESPONSE_OK == ret)
     {
-      ibus_libthai_setup_get_values (GTK_DIALOG (main_dlg), &opt);
-      ibus_libthai_write_config (settings, &opt);
+      IBusLibThaiSetupOptions new_opt;
+      ibus_libthai_setup_get_values (GTK_DIALOG (main_dlg), &new_opt);
+      ibus_libthai_write_config (settings, &new_opt, &opt);
     }
 
   return 0;

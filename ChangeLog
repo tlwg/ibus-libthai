@@ -1,3 +1,16 @@
+2021-10-31  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Apply only changed options, not all.
+
+	* src/ibus_config.h, src/ibus_config.c (ibus_libthai_write_config):
+	  - Add 'prev_opt' arg for comparison and apply only 'opt' members
+	    that differ.
+	  - Helper function n_option_diffs() is added for determining
+	    whether to use delay-apply mode for GSettings.
+	* src/setup.c (main):
+	  - Read values from setup dialog into separate 'new_opt'
+	    and pass new and old options to ibus_libthai_write_config().
+
 2021-10-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Remove watch on GSettings key.

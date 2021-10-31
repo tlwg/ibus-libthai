@@ -31,17 +31,41 @@ ibus_libthai_read_config (GSettings *settings,
   opt->do_correct = g_settings_get_boolean (settings, CONFIG_DO_CORRECT);
 }
 
+static int
+n_option_diffs (const IBusLibThaiSetupOptions *opt1,
+                const IBusLibThaiSetupOptions *opt2)
+{
+  int n_diffs = 0;
+
+  if (opt1->thai_kb_map != opt2->thai_kb_map)
+    ++n_diffs;
+  if (opt1->isc_mode != opt2->isc_mode)
+    ++n_diffs;
+  if (opt1->do_correct != opt2->do_correct)
+    ++n_diffs;
+
+  return n_diffs;
+}
+
 void
 ibus_libthai_write_config (GSettings *settings,
-                           const IBusLibThaiSetupOptions *opt)
+                           const IBusLibThaiSetupOptions *opt,
+                           const IBusLibThaiSetupOptions *prev_opt)
 {
-  g_settings_delay (settings);
+  int n_diffs = n_option_diffs (opt, prev_opt);
 
-  g_settings_set_enum (settings, CONFIG_KB_LAYOUT, opt->thai_kb_map);
-  g_settings_set_enum (settings, CONFIG_ISC_MODE, opt->isc_mode);
-  g_settings_set_boolean (settings, CONFIG_DO_CORRECT, opt->do_correct);
+  if (n_diffs > 1)
+    g_settings_delay (settings);
 
-  g_settings_apply (settings);
+  if (opt->thai_kb_map != prev_opt->thai_kb_map)
+    g_settings_set_enum (settings, CONFIG_KB_LAYOUT, opt->thai_kb_map);
+  if (opt->isc_mode != prev_opt->isc_mode)
+    g_settings_set_enum (settings, CONFIG_ISC_MODE, opt->isc_mode);
+  if (opt->do_correct != prev_opt->do_correct)
+    g_settings_set_boolean (settings, CONFIG_DO_CORRECT, opt->do_correct);
+
+  if (n_diffs > 1)
+    g_settings_apply (settings);
 }
 
 /*

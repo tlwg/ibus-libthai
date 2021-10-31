@@ -36,7 +36,8 @@ struct _IBusLibThaiSetupOptions
 void ibus_libthai_read_config (GSettings *settings,
                                IBusLibThaiSetupOptions *opt);
 void ibus_libthai_write_config (GSettings *settings,
-                                const IBusLibThaiSetupOptions *opt);
+                                const IBusLibThaiSetupOptions *opt,
+                                const IBusLibThaiSetupOptions *prev_opt);
 
 #endif /* __IBUS_CONFIG_H__ */
 
